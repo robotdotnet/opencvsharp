@@ -1,4 +1,6 @@
-﻿namespace OpenCvSharp.PInvoke.NativeLibraryUtilties
+﻿using System.Diagnostics.CodeAnalysis;
+
+namespace OpenCvSharp.PInvoke.NativeLibraryUtilties
 {
     /// <summary>
     /// Enumeration of the OS type for this system.

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Runtime.InteropServices;
 
@@ -7,6 +8,7 @@ namespace OpenCvSharp.PInvoke.NativeLibraryUtilties
     /// <summary>
     /// This class handles native libraries on Linux
     /// </summary>
+    [ExcludeFromCodeCoverage]
     public class LinuxLibraryLoader : ILibraryLoader
     {
         /// <inheritdoc/>

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
 
 namespace OpenCvSharp.PInvoke.NativeLibraryUtilties
 {
@@ -6,6 +7,7 @@ namespace OpenCvSharp.PInvoke.NativeLibraryUtilties
     /// Specifies that the attributed field should be considered a target for native initialization 
     /// </summary>
     [AttributeUsage(AttributeTargets.Field)]
+    [ExcludeFromCodeCoverage]
     public class NativeDelegateAttribute : Attribute
     {
         /// <summary>

@@ -365,7 +365,6 @@
     <Compile Include="PInvoke\features2d\NativeMethods_features2d_DescriptorExtractor.cs" />
     <Compile Include="PInvoke\NativeMethods_stitching.cs" />
     <Compile Include="Util\PInvokeHelper.cs" />
-    <Compile Include="Util\WindowsLibraryLoader.cs" />
     <Compile Include="Util\ArrayAddress.cs" />
     <Compile Include="Util\DynamicInvoker.cs" />
     <Compile Include="Util\Platform.cs" />

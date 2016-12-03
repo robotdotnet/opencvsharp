@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Runtime.InteropServices;
 
 namespace OpenCvSharp.PInvoke.NativeLibraryUtilties
 {
+    [ExcludeFromCodeCoverage]
     internal class RoboRioLibraryLoader : ILibraryLoader
     {
         /// <inheritdoc/>

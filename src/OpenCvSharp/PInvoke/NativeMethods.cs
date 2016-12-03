@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OpenCvSharp.PInvoke.NativeLibraryUtilties;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
@@ -49,7 +50,7 @@ namespace OpenCvSharp
         [SecurityPermission(SecurityAction.Demand, Flags = SecurityPermissionFlag.UnmanagedCode)]
         static NativeMethods()
         {
-            LoadLibraries(WindowsLibraryLoader.Instance.AdditionalPaths);
+            //LoadLibraries(WindowsLibraryLoader.Instance.AdditionalPaths);
 
             // call cv to enable redirecting 
             TryPInvoke();
@@ -70,16 +71,16 @@ namespace OpenCvSharp
             
             foreach (string dll in RuntimeDllNames)
             {
-                WindowsLibraryLoader.Instance.LoadLibrary(dll, runtimePaths);
+                //WindowsLibraryLoader.Instance.LoadLibrary(dll, runtimePaths);
             }
             foreach (string dll in OpenCVDllNames)
             {
-                WindowsLibraryLoader.Instance.LoadLibrary(dll + Version, ap);
+                //WindowsLibraryLoader.Instance.LoadLibrary(dll + Version, ap);
             }
 
             // calib3d, contrib, core, features2d, flann, highgui, imgproc, legacy,
             // ml, nonfree, objdetect, photo, superres, video, videostab
-            WindowsLibraryLoader.Instance.LoadLibrary(DllExtern, ap);
+            //WindowsLibraryLoader.Instance.LoadLibrary(DllExtern, ap);
 
             // Redirection of error occurred in native library 
             IntPtr zero = IntPtr.Zero;
