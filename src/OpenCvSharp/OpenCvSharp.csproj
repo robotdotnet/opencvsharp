@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -10,7 +10,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>OpenCvSharp</RootNamespace>
     <AssemblyName>OpenCvSharp</AssemblyName>
-    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
@@ -43,6 +43,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -55,6 +56,7 @@
     <DocumentationFile>bin\Release\OpenCvSharp.xml</DocumentationFile>
     <NoWarn>
     </NoWarn>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release JP|AnyCPU' ">
     <OutputPath>bin\Release JP\</OutputPath>
@@ -65,6 +67,7 @@
     <ErrorReport>prompt</ErrorReport>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <DocumentationFile>bin\Release JP\OpenCvSharp.xml</DocumentationFile>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
     <SignAssembly>true</SignAssembly>
@@ -155,6 +158,17 @@
     <Compile Include="PInvoke\imgproc\NativeMethods_imgproc_LineIterator.cs" />
     <Compile Include="PInvoke\ml\NativeMethods_ml_LogisticRegression.cs" />
     <Compile Include="PInvoke\ml\NativeMethods_ml_StatModel.cs" />
+    <Compile Include="PInvoke\NativeLibraryUtilties\ILibraryInformation.cs" />
+    <Compile Include="PInvoke\NativeLibraryUtilties\ILibraryLoader.cs" />
+    <Compile Include="PInvoke\NativeLibraryUtilties\LinuxLibraryLoader.cs" />
+    <Compile Include="PInvoke\NativeLibraryUtilties\MacOsLibraryLoader.cs" />
+    <Compile Include="PInvoke\NativeLibraryUtilties\NativeDelegateAttribute.cs" />
+    <Compile Include="PInvoke\NativeLibraryUtilties\NativeDelegateInitializer.cs" />
+    <Compile Include="PInvoke\NativeLibraryUtilties\NativeLibraryLoader.cs" />
+    <Compile Include="PInvoke\NativeLibraryUtilties\OsType.cs" />
+    <Compile Include="PInvoke\NativeLibraryUtilties\RoboRioLibraryLoader.cs" />
+    <Compile Include="PInvoke\NativeLibraryUtilties\Uname.cs" />
+    <Compile Include="PInvoke\NativeLibraryUtilties\WindowsLibraryLoader.cs" />
     <Compile Include="PInvoke\NativeMethods_imgcodecs.cs" />
     <Compile Include="PInvoke\photo\NativeMethods_photo_HDR.cs" />
     <Compile Include="PInvoke\shape\NativeMethods_shape_ShapeDistanceExtractor.cs" />
