@@ -1,0 +1,58 @@
+def cvUnzipLocation = "$buildDir/cv"
+
+task downloadCV() {
+    description = 'Downloads the C++ ARM OpenCV maven dependency.'
+
+    group = 'WPILib'
+    def depFolder = "$buildDir/dependencies"
+    def libZip = file("$depFolder/opencv.zip")
+    outputs.file(libZip)
+    def armCV
+    
+
+    doFirst {
+        def armCvDependency = project.dependencies.create("edu.wpi.cscore.cpp:cscore:+:athena-uberzip@zip")
+        def armCvConfig = project.configurations.detachedConfiguration(armCvDependency)
+        armCvConfig.setTransitive(false)
+        armCV = armCvConfig.files[0].canonicalFile
+    }
+
+    doLast {
+        copy {
+            from armCV
+            rename 'cscore(.+)', 'opencv.zip'
+            into depFolder
+        }
+    }
+}
+
+// Create a task that will unzip the wpilib files into a temporary build directory
+task unzipCV(type: Copy) {
+    description = 'Unzips the cv maven dependency so that the include files and libraries can be used'
+    group = 'WPILib'
+    dependsOn downloadCV
+    
+    from zipTree(downloadCV.outputs.files.singleFile)
+    into cvUnzipLocation
+}
+
+ext.defineCvProperties = {
+    ext.opencv = cvUnzipLocation
+    ext.opencvInclude = "$cvUnzipLocation/include"
+    ext.opencvLocation = "$cvUnzipLocation/lib"
+    ext.opencvSharedLib = "$opencvLocation/libopencv.so"
+    
+    ext.addCvLibraryLinks = { compileTask, linker, targetPlatform ->
+        compileTask.dependsOn project(':').unzipCV
+        String architecture = targetPlatform.architecture
+        if (architecture.contains('arm')) {
+            // Grab all the shared libraries and link them
+            linker.args opencvSharedLib
+
+            def libraryPath = opencvLocation
+
+            linker.args << '-L' + libraryPath
+        }
+    }
+}
+
