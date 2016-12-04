@@ -1,58 +1,113 @@
-def cvUnzipLocation = "$buildDir/cv"
+ext.getOpenCvPlatformPackage = { targetPlatform ->
+    if (targetPlatform.architecture.arm) {
+        return 'linux-arm'
+    } else if (targetPlatform.operatingSystem.linux) {
+        if (targetPlatform.architecture.amd64) {
+            return 'linux-x86_64'
+        } else {
+            return 'linux-' + targetPlatform.architecture.name
+        }
+    } else if (targetPlatform.operatingSystem.windows) {
+        if (targetPlatform.architecture.amd64) {
+            return 'windows-x86_64'
+        } else {
+            return 'windows-' + targetPlatform.architecture.name
+        }
+    } else if (targetPlatform.operatingSystem.macOsX) {
+        if (targetPlatform.architecture.amd64) {
+            return 'osx-x86_64'
+        } else {
+            return 'osx-' + targetPlatform.architecture.name
+        }
+    } else {
+        return targetPlatform.operatingSystem.name + '-' + targetPlatform.architecture.name
+    }
+}
 
-task downloadCV() {
-    description = 'Downloads the C++ ARM OpenCV maven dependency.'
-
+task downloadOpenCvHeaders() {
+    description = 'Downloads the OpenCV Headers maven dependency.'
     group = 'WPILib'
-    def depFolder = "$buildDir/dependencies"
-    def libZip = file("$depFolder/opencv.zip")
-    outputs.file(libZip)
-    def armCV
-    
+    def depFolder = "${buildDir}/dependencies"
+    def openCvHeadersZip = file("${depFolder}/opencv-headers.zip")
+    outputs.file(openCvHeadersZip)
+    def openCvHeaders
 
     doFirst {
-        def armCvDependency = project.dependencies.create("edu.wpi.cscore.cpp:cscore:+:athena-uberzip@zip")
-        def armCvConfig = project.configurations.detachedConfiguration(armCvDependency)
-        armCvConfig.setTransitive(false)
-        armCV = armCvConfig.files[0].canonicalFile
+        def openCvHeadersDependency = project.dependencies.create("org.opencv:opencv-headers:3.1.0@jar")
+        def openCvHeadersConfig = project.configurations.detachedConfiguration(openCvHeadersDependency)
+        openCvHeadersConfig.setTransitive(false)
+        openCvHeaders = openCvHeadersConfig.files[0].canonicalFile
     }
 
     doLast {
         copy {
-            from armCV
-            rename 'cscore(.+)', 'opencv.zip'
+            from openCvHeaders
+            rename 'opencv-headers(.+)', 'opencv-headers.zip'
             into depFolder
         }
     }
 }
 
-// Create a task that will unzip the wpilib files into a temporary build directory
-task unzipCV(type: Copy) {
-    description = 'Unzips the cv maven dependency so that the include files and libraries can be used'
-    group = 'WPILib'
-    dependsOn downloadCV
-    
-    from zipTree(downloadCV.outputs.files.singleFile)
-    into cvUnzipLocation
-}
+ext.useOpenCv = { project ->
+    def openCvUnzipLocation = "${project.buildDir}/opencv"
 
-ext.defineCvProperties = {
-    ext.opencv = cvUnzipLocation
-    ext.opencvInclude = "$cvUnzipLocation/include"
-    ext.opencvLocation = "$cvUnzipLocation/lib"
-    ext.opencvSharedLib = "$opencvLocation/libopencv.so"
-    
-    ext.addCvLibraryLinks = { compileTask, linker, targetPlatform ->
-        compileTask.dependsOn project(':').unzipCV
-        String architecture = targetPlatform.architecture
-        if (architecture.contains('arm')) {
-            // Grab all the shared libraries and link them
-            linker.args opencvSharedLib
+    project.tasks.create(name: "unzipOpenCvHeaders", type: Copy) {
+        description = 'Unzips the OpenCV maven dependency so that the include files and libraries can be used'
+        group = 'OpenCv'
+        dependsOn downloadOpenCvHeaders
+        from zipTree(downloadOpenCvHeaders.outputs.files.singleFile)
+        into "${openCvUnzipLocation}/include"
+    }
 
-            def libraryPath = opencvLocation
+    project.ext.openCv = openCvUnzipLocation
+    project.ext.openCvInclude = "$openCvUnzipLocation/include"
 
-            linker.args << '-L' + libraryPath
+    project.ext.addOpenCvLibraryLinks = { compileTask, linker, targetPlatform ->
+        def openCvPlatform = project.getOpenCvPlatformPackage(targetPlatform)
+        def openCvNativesFolder = "${project.openCv}/${openCvPlatform}"
+
+        if (project.tasks.findByPath("unzipOpenCvNatives_${openCvPlatform}") == null) {
+            project.tasks.create(name: "downloadOpenCvNatives_${openCvPlatform}") {
+                description = 'Downloads the OpenCV natives maven dependency.'
+                group = 'OpenCv'
+                def depFolder = "${project.buildDir}/dependencies"
+                def openCvNativesZip = file("${depFolder}/opencv-natives-${openCvPlatform}.zip")
+                outputs.file(openCvNativesZip)
+                def openCvNatives
+
+                doFirst {
+                    def openCvNativesDependency = project.dependencies.create("org.opencv:opencv-natives:3.1.0:${openCvPlatform}@jar")
+                    def openCvNativesConfig = project.configurations.detachedConfiguration(openCvNativesDependency)
+                    openCvNativesConfig.setTransitive(false)
+                    openCvNatives = openCvNativesConfig.files[0].canonicalFile
+                }
+
+                doLast {
+                    copy {
+                        from openCvNatives
+                        rename 'opencv-natives(.+)', "opencv-natives-${openCvPlatform}.zip"
+                        into depFolder
+                    }
+                }
+            }
+
+            project.tasks.create(name: "unzipOpenCvNatives_${openCvPlatform}", type: Copy) {
+                description = 'Unzips the OpenCV maven dependency so that the include files and libraries can be used'
+                group = 'OpenCv'
+                dependsOn "downloadOpenCvNatives_${openCvPlatform}"
+                from zipTree(project.tasks["downloadOpenCvNatives_${openCvPlatform}"].outputs.files.singleFile)
+                into openCvNativesFolder
+                exclude '**/MANIFEST.MF'
+            }
+        }
+
+        compileTask.dependsOn "unzipOpenCvHeaders", "unzipOpenCvNatives_${openCvPlatform}"
+        if (targetPlatform.operatingSystem.windows) {
+            linker.args "${openCvNativesFolder}/opencv.lib"
+        } else {
+            linker.args "-L${openCvNativesFolder}"
+            linker.args "-lopencv"
+            linker.args "-ldl"
         }
     }
 }
-

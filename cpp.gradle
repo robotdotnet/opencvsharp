@@ -1,18 +1,16 @@
-defineCvProperties()
-
 def cppSetupModel = { project ->
     project.model {
         components {
             OpenCvSharpExtern(NativeLibrarySpec) {
-                targetPlatform 'arm'
+                if (project.isArm) {
+                    targetPlatform 'arm'
+                } else {
+                    //targetPlatform 'x86'
+                    targetPlatform 'x64'
+                }
+
                 setupDefines(project, binaries)
 
-                binaries.all {
-                    tasks.withType(CppCompile) {
-                        cppCompiler.args "-DNAMESPACED_WPILIB"
-                        addCvLibraryLinks(it, linker, targetPlatform)
-                    }
-                }
 
                 sources {
                     cpp {
@@ -21,7 +19,7 @@ def cppSetupModel = { project ->
                             includes = ["**/*.cpp"]
                         }
                         exportedHeaders {
-                            srcDirs = [cppInclude, opencvInclude, "${rootDir}/include"]
+                            srcDirs = [cppInclude, project.openCvInclude, "${rootDir}/include"]
                             includes = ['**/*.h']
                             includes = ['**/*.hpp']
                         }
@@ -32,54 +30,66 @@ def cppSetupModel = { project ->
     }
 }
 
-ext.mergeStaticSetup = { pjt ->
-    if (combineStaticLibs && useDriver) {
-        pjt.tasks.whenObjectAdded { task ->
-            def name = task.name.toLowerCase()
-            if (name.contains('create') && name.contains('staticlibrary')) {
-                def libraryPath = task.outputFile.parent
-                def library = file(task.outputFile.absolutePath)
-                project(':arm:driver').model {
-                    binaries {
-                        withType(StaticLibraryBinarySpec) { binary ->
-                            ext.driverLibrary = new File(binary.staticLibraryFile.absolutePath)
-                        }
+def openCvZipTask = { project ->
+    project.ext.opencvZip = project.tasks.create("${project.isArm ? 'arm' : 'native'}OpencvZip", Zip) {
+        description = 'Creates platform-specific zip of the opencv libraries.'
+        group = 'WPILib'
+        destinationDir = project.buildDir
+        baseName = 'OpenCvSharpExtern'
+        classifier = "${project.buildPlatform}"
+        duplicatesStrategy = 'exclude'
+
+        project.model {
+            binaries {
+                withType(StaticLibraryBinarySpec) { binary ->
+                    from(binary.staticLibraryFile) {
+                        into getPlatformPath(binary)
                     }
                 }
-                task.doLast {
-                    library.renameTo(file("${library}.m"))
-                    copy {
-                        from driverLibrary
-                        into libraryPath
+                withType(SharedLibraryBinarySpec) { binary ->
+                    from(binary.sharedLibraryFile) {
+                        into getPlatformPath(binary)
                     }
-                    
-                    ByteArrayOutputStream mriFile = new ByteArrayOutputStream()
-                    mriFile << "create lib${libraryName}.a\n"
-                    mriFile << "addlib lib${libraryName}.a.m\n"
-                    mriFile << "addlib lib${libraryName}Driver.a\n"
-                    mriFile << "save\n"
-                    mriFile << "end\n"
-                    
-                    def stdIn = new ByteArrayInputStream(mriFile.buf)
-                    
-                    exec {
-                        standardInput = stdIn
-                        workingDir = libraryPath
-                        commandLine "${compilerPrefixToUse}ar", '-M'
+                    from (new File(binary.sharedLibraryFile.absolutePath + ".debug")) {
+                        into getPlatformPath(binary)
                     }
                 }
             }
         }
     }
+
+    project.build.dependsOn project.opencvZip
+
+    project.tasks.whenTaskAdded { task ->
+        def name = task.name.toLowerCase()
+        if (name.contains("opencvsharpexternsharedlibrary") || name.contains("opencvsharpexternstaticlibrary")) {
+            project.opencvZip.dependsOn task
+        }
+    }
 }
 
-project(':arm:cpp') {
-    apply plugin: 'cpp'
+if (buildArm) {
+    project(':arm') {
+        apply plugin: 'cpp'
 
-    apply from: "${rootDir}/toolchains/arm.gradle"
+        apply from: "${rootDir}/toolchains/arm.gradle"
 
-    cppSetupModel(project)
-    
-    project.debugStripSetup()
-    mergeStaticSetup(project)
+        project.debugStripSetup()
+        cppSetupModel(project)
+        openCvZipTask(project)
+        useOpenCv(project)
+    }
+}
+
+if (buildNative) {
+    project(':native') {
+        apply plugin: 'cpp'
+
+        apply from: "${rootDir}/toolchains/native.gradle"
+
+        project.debugStripSetup()
+        cppSetupModel(project)
+        openCvZipTask(project)
+        useOpenCv(project)
+    }
 }

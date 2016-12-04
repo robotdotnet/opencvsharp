@@ -13,6 +13,45 @@ allprojects {
 
 ext.compilerPrefixToUse = project.hasProperty('compilerPrefix') ? project.compilerPrefix : 'arm-frc-linux-gnueabi-'
 
+ext.buildArm = !project.hasProperty('skipArm')
+ext.buildNative = !project.hasProperty('skipNative')
+
+if (hasProperty('makeDesktop')) {
+    println 'Making desktop classifier jar. NOTE: This desktop version should only be used for local testing.' +
+            'It will only support the current platform, and will override fetching the latest development version from' +
+            ' the maven repo until you manually delete it!'
+}
+
+ext.getPlatformPath2 = { targetPlatform ->
+    if (targetPlatform.architecture.arm) {
+        return 'Linux/arm'
+    } else if (targetPlatform.operatingSystem.linux) {
+        if (targetPlatform.architecture.amd64) {
+            return 'Linux/amd64'
+        } else {
+            return 'Linux/' + targetPlatform.architecture.name
+        }
+    } else if (targetPlatform.operatingSystem.windows) {
+        if (targetPlatform.architecture.amd64) {
+            return 'Windows/amd64'
+        } else {
+            return 'Windows/' + targetPlatform.architecture.name
+        }
+    } else if (targetPlatform.operatingSystem.macOsX) {
+        if (targetPlatform.architecture.amd64) {
+            return 'Mac OS X/x86_64'
+        } else {
+            return 'Mac OS X/' + targetPlatform.architecture.name
+        }
+    } else {
+        return targetPlatform.operatingSystem.name + '/' + targetPlatform.architecture.name
+    }
+}
+
+ext.getPlatformPath = { binary ->
+    return getPlatformPath2(binary.targetPlatform)
+}
+
 ext.setupDefines = { project, binaries ->
     binaries.all {
         if (project.hasProperty('debug')) {
@@ -25,51 +64,22 @@ ext.setupDefines = { project, binaries ->
 
 apply from: "locations.gradle"
 
-ext.addUserLinks = { linker, targetPlatform, implLib ->
-    def libPattern = /.*((\\/|\\).*)+lib(?<libName>.+).(.+)$/
-    def libraryArgs = []
-    def libraryPath = file(driverLibraryLib).path
-
-    // adds all libraries found in the driver folder
-    def libraryTree = fileTree(libraryPath)
-    libraryTree.include '*.so'
-    libraryTree.include '*.a'
-
-    libraryTree.each { lib ->
-        def nameMatcher = (lib.path =~ libPattern)
-        if (nameMatcher[0].size() > 1) {
-            def name = nameMatcher.group('libName')
-            libraryArgs << '-l' + name
-        }
-    }
-    
-    if (implLib) {
-        // adds all libraries found in the impl folder
-        def implLibraryPath = file(cppLibraryLib).path
-        def implLibraryTree = fileTree(implLibraryPath)
-        implLibraryTree.include '*.so'
-        implLibraryTree.include '*.a'
-
-        implLibraryTree.each { lib ->
-            def nameMatcher = (lib.path =~ libPattern)
-            if (nameMatcher[0].size() > 1) {
-                def name = nameMatcher.group('libName')
-                libraryArgs << '-l' + name
-            }
-        }
-    }
-     
-    // Add all arguments
-    String architecture = targetPlatform.architecture
-    if (architecture.contains('arm')){
-        linker.args << '-L' + libraryPath
-        linker.args.addAll(libraryArgs)
-    }
-}
-
 apply from: "properties.gradle"
 
 apply from: "dependencies.gradle"
+
+ext.setupDefines = { project, binaries ->
+    binaries.all {
+	if (project.hasProperty('debug')) {
+	    project.setupDebugDefines(cppCompiler, linker)
+	} else {
+	    project.setupReleaseDefines(cppCompiler, linker)
+	}
+        tasks.withType(CppCompile) {
+            project.addOpenCvLibraryLinks(it, linker, targetPlatform)
+        }
+    }
+}
 
 apply from: "cpp.gradle"
 
@@ -77,7 +87,7 @@ apply from: "cpp.gradle"
 // built when running ./gradlew build
 task build
 
-apply from: "releases.gradle"
+//apply from: "releases.gradle"
 
 task clean(type: Delete) {
     description = "Deletes the build directory"
