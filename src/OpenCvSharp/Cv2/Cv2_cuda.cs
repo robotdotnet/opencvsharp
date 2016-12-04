@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 
 namespace OpenCvSharp.Gpu
-{
+{ 
     /// <summary>
     /// Functions of OpenCV GPU module
     /// </summary>
@@ -112,7 +112,8 @@ namespace OpenCvSharp.Gpu
             ThrowIfGpuNotAvailable();
             if (m == null)
                 throw new ArgumentNullException(nameof(m));
-            NativeMethods.cuda_registerPageLocked(m.CvPtr);
+            throw new NotSupportedException("Pages Not Supported");
+            //NativeMethods.cuda_registerPageLocked(m.CvPtr);
         }
 
         /// <summary>
@@ -124,7 +125,8 @@ namespace OpenCvSharp.Gpu
             ThrowIfGpuNotAvailable();
             if (m == null)
                 throw new ArgumentNullException(nameof(m));
-            NativeMethods.cuda_unregisterPageLocked(m.CvPtr);
+            throw new NotSupportedException("Pages Not Supported");
+            //NativeMethods.cuda_unregisterPageLocked(m.CvPtr);
         }
 
         #endregion

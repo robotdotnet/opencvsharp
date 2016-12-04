@@ -115,12 +115,14 @@ namespace OpenCvSharp
         [NativeDelegate("cuda_printShortCudaDeviceInfo")] public static cuda_printShortCudaDeviceInfoDelegate cuda_printShortCudaDeviceInfo;
         #endregion
 
+        /*
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate void cuda_registerPageLockedDelegate(IntPtr m);
         [NativeDelegate("cuda_registerPageLocked")] public static cuda_registerPageLockedDelegate cuda_registerPageLocked;
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate void cuda_unregisterPageLockedDelegate(IntPtr m);
         [NativeDelegate("cuda_unregisterPageLocked")] public static cuda_unregisterPageLockedDelegate cuda_unregisterPageLocked;
+        */
 
         #region Stream
 
@@ -144,6 +146,7 @@ namespace OpenCvSharp
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate void cuda_Stream_waitForCompletionDelegate(IntPtr obj);
         [NativeDelegate("cuda_Stream_waitForCompletion")] public static cuda_Stream_waitForCompletionDelegate cuda_Stream_waitForCompletion;
+        /*
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate void cuda_Stream_enqueueDownload_CudaMemDelegate(IntPtr obj, IntPtr src, IntPtr dst);
         [NativeDelegate("cuda_Stream_enqueueDownload_CudaMem")] public static cuda_Stream_enqueueDownload_CudaMemDelegate cuda_Stream_enqueueDownload_CudaMem;
@@ -169,6 +172,7 @@ namespace OpenCvSharp
         public delegate void cuda_Stream_enqueueConvertDelegate(
             IntPtr obj, IntPtr src, IntPtr dst, int dtype, double a, double b);
         [NativeDelegate("cuda_Stream_enqueueConvert")] public static cuda_Stream_enqueueConvertDelegate cuda_Stream_enqueueConvert;
+        */
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate void cuda_Stream_enqueueHostCallbackDelegate(
             IntPtr obj, IntPtr callback, IntPtr userData);
@@ -183,7 +187,7 @@ namespace OpenCvSharp
         [NativeDelegate("cuda_Stream_bool")] public static cuda_Stream_boolDelegate cuda_Stream_bool;
 
         #endregion
-
+        /*
         #region CascadeClassifier_GPU
 
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
@@ -464,5 +468,6 @@ namespace OpenCvSharp
         public unsafe delegate float* cuda_StereoBM_GPU_avergeTexThresholdDelegate(IntPtr obj);
         [NativeDelegate("cuda_StereoBM_GPU_avergeTexThreshold")] public static cuda_StereoBM_GPU_avergeTexThresholdDelegate cuda_StereoBM_GPU_avergeTexThreshold;
         #endregion
+    */
     }
 }

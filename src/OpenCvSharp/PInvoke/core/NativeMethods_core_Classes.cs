@@ -10,7 +10,7 @@ namespace OpenCvSharp
     partial class NativeMethods
     {
         #region Algorithm
-
+        /*
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate IntPtr core_Algorithm_newDelegate();
         [NativeDelegate("core_Algorithm_new")] public static core_Algorithm_newDelegate core_Algorithm_new;
@@ -21,6 +21,8 @@ namespace OpenCvSharp
         public delegate void core_Algorithm_nameDelegate(IntPtr self, [MarshalAs(UnmanagedType.LPStr)] StringBuilder buf, int bufLength);
         [NativeDelegate("core_Algorithm_name")] public static core_Algorithm_nameDelegate core_Algorithm_name;
         
+        
+        
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate IntPtr core_Ptr_Algorithm_newDelegate(IntPtr rawPtr);
         [NativeDelegate("core_Ptr_Algorithm_new")] public static core_Ptr_Algorithm_newDelegate core_Ptr_Algorithm_new;
@@ -30,6 +32,7 @@ namespace OpenCvSharp
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate IntPtr core_Ptr_Algorithm_getDelegate(IntPtr ptr);
         [NativeDelegate("core_Ptr_Algorithm_get")] public static ObjFunc core_Ptr_Algorithm_get;
+        */
 
         #endregion
 

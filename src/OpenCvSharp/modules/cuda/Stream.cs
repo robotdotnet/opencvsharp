@@ -199,8 +199,8 @@ namespace OpenCvSharp.Gpu
                 throw new ArgumentNullException(nameof(dst));
             src.ThrowIfDisposed();
             dst.ThrowIfDisposed();
-
-            NativeMethods.cuda_Stream_enqueueDownload_Mat(ptr, src.CvPtr, dst.CvPtr);
+            throw new NotSupportedException();
+            //NativeMethods.cuda_Stream_enqueueDownload_Mat(ptr, src.CvPtr, dst.CvPtr);
         }
 
         /// <summary>
@@ -218,8 +218,8 @@ namespace OpenCvSharp.Gpu
                 throw new ArgumentNullException(nameof(dst));
             src.ThrowIfDisposed();
             dst.ThrowIfDisposed();
-
-            NativeMethods.cuda_Stream_enqueueUpload_Mat(ptr, src.CvPtr, dst.CvPtr);
+            throw new NotSupportedException();
+            //NativeMethods.cuda_Stream_enqueueUpload_Mat(ptr, src.CvPtr, dst.CvPtr);
         }
 
         /// <summary>
@@ -236,8 +236,8 @@ namespace OpenCvSharp.Gpu
                 throw new ArgumentNullException(nameof(dst));
             src.ThrowIfDisposed();
             dst.ThrowIfDisposed();
-
-            NativeMethods.cuda_Stream_enqueueCopy(ptr, src.CvPtr, dst.CvPtr);
+            throw new NotSupportedException();
+            //NativeMethods.cuda_Stream_enqueueCopy(ptr, src.CvPtr, dst.CvPtr);
         }
 
         /// <summary>
@@ -251,8 +251,8 @@ namespace OpenCvSharp.Gpu
             if (src == null)
                 throw new ArgumentNullException(nameof(src));
             src.ThrowIfDisposed();
-
-            NativeMethods.cuda_Stream_enqueueMemSet(ptr, src.CvPtr, val);
+            throw new NotSupportedException();
+            //NativeMethods.cuda_Stream_enqueueMemSet(ptr, src.CvPtr, val);
         }
 
         /// <summary>
@@ -267,8 +267,8 @@ namespace OpenCvSharp.Gpu
             if (src == null)
                 throw new ArgumentNullException(nameof(src));
             src.ThrowIfDisposed();
-
-            NativeMethods.cuda_Stream_enqueueMemSet_WithMask(ptr, src.CvPtr, val, Cv2.ToPtr(mask));
+            throw new NotSupportedException();
+            //NativeMethods.cuda_Stream_enqueueMemSet_WithMask(ptr, src.CvPtr, val, Cv2.ToPtr(mask));
         }
 
         /// <summary>
@@ -288,8 +288,8 @@ namespace OpenCvSharp.Gpu
                 throw new ArgumentNullException(nameof(dst));
             src.ThrowIfDisposed();
             dst.ThrowIfDisposed();
-
-            NativeMethods.cuda_Stream_enqueueConvert(ptr, src.CvPtr, dst.CvPtr, dtype, a, b);
+            throw new NotSupportedException();
+            //NativeMethods.cuda_Stream_enqueueConvert(ptr, src.CvPtr, dst.CvPtr, dtype, a, b);
         }
 
         /// <summary>

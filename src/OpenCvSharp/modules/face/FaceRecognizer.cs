@@ -5,6 +5,7 @@ using OpenCvSharp.Util;
 
 namespace OpenCvSharp.Face
 {
+    /*
     /// <summary>
     ///
     /// </summary>
@@ -242,4 +243,5 @@ namespace OpenCvSharp.Face
 
         #endregion
     }
+    */
 }

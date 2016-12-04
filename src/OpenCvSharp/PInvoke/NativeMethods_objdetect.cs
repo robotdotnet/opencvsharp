@@ -9,6 +9,7 @@ namespace OpenCvSharp
 {
     partial class NativeMethods
     {
+        /*
         #region LatendSvmDetector
 
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
@@ -41,6 +42,7 @@ namespace OpenCvSharp
         [NativeDelegate("objdetect_LatentSvmDetector_getClassCount")] public static objdetect_LatentSvmDetector_getClassCountDelegate objdetect_LatentSvmDetector_getClassCount;
 
         #endregion
+        */
 
         #region CascadeClassfier
 

@@ -3,7 +3,7 @@ using System;
 namespace OpenCvSharp
 {
     // ReSharper disable InconsistentNaming
-
+    /*
     /// <summary>
     /// Gaussian Mixture-based Backbround/Foreground Segmentation Algorithm
     /// </summary>
@@ -169,4 +169,5 @@ namespace OpenCvSharp
 
         #endregion
     }
+    */
 }

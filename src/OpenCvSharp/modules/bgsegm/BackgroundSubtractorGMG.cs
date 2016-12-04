@@ -3,7 +3,7 @@ using System;
 namespace OpenCvSharp
 {
     // ReSharper disable InconsistentNaming
-
+    /*
     /// <summary>
     /// Background Subtractor module. Takes a series of images and returns a sequence of mask (8UC1)
     ///  images of the same size, where 255 indicates Foreground and 0 represents Background.
@@ -281,4 +281,5 @@ namespace OpenCvSharp
         #endregion
 
     }
+    */
 }

@@ -17,11 +17,11 @@ namespace OpenCvSharp
         public delegate void calib3d_StereoMatcher_computeDelegate(
             IntPtr obj, IntPtr left, IntPtr right, IntPtr disparity);
         [NativeDelegate("calib3d_StereoMatcher_compute")] public static calib3d_StereoMatcher_computeDelegate calib3d_StereoMatcher_compute;
-
+        /*
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate IntPtr calib3d_Ptr_StereoMatcher_infoDelegate(IntPtr obj);
         [NativeDelegate("calib3d_Ptr_StereoMatcher_info")] public static calib3d_Ptr_StereoMatcher_infoDelegate calib3d_Ptr_StereoMatcher_info;
-
+        */
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate int calib3d_StereoMatcher_getMinDisparityDelegate(IntPtr obj);
         [NativeDelegate("calib3d_StereoMatcher_getMinDisparity")] public static calib3d_StereoMatcher_getMinDisparityDelegate calib3d_StereoMatcher_getMinDisparity;
@@ -81,11 +81,11 @@ namespace OpenCvSharp
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate IntPtr calib3d_StereoBM_createDelegate(int numDisparities, int blockSize);
         [NativeDelegate("calib3d_StereoBM_create")] public static calib3d_StereoBM_createDelegate calib3d_StereoBM_create;
-
+        /*
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate IntPtr calib3d_Ptr_StereoBM_infoDelegate(IntPtr obj);
         [NativeDelegate("calib3d_Ptr_StereoBM_info")] public static calib3d_Ptr_StereoBM_infoDelegate calib3d_Ptr_StereoBM_info;
-
+        */
 
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate int calib3d_StereoBM_getPreFilterTypeDelegate(IntPtr obj);
@@ -166,11 +166,11 @@ namespace OpenCvSharp
             int preFilterCap, int uniquenessRatio,
             int speckleWindowSize, int speckleRange, int mode);
         [NativeDelegate("calib3d_StereoSGBM_create")] public static calib3d_StereoSGBM_createDelegate calib3d_StereoSGBM_create;
-
+        /*
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate IntPtr calib3d_Ptr_StereoSGBM_infoDelegate(IntPtr obj);
         [NativeDelegate("calib3d_Ptr_StereoSGBM_info")] public static calib3d_Ptr_StereoSGBM_infoDelegate calib3d_Ptr_StereoSGBM_info;
-
+        */
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate int calib3d_StereoSGBM_getPreFilterCapDelegate(IntPtr obj);
         [NativeDelegate("calib3d_StereoSGBM_getPreFilterCap")] public static calib3d_StereoSGBM_getPreFilterCapDelegate calib3d_StereoSGBM_getPreFilterCap;

@@ -6,6 +6,7 @@ using OpenCvSharp.Util;
 
 namespace OpenCvSharp.XFeatures2D
 {
+    /*
 #if LANG_JP
     /// <summary>
     /// FREAK 実装
@@ -106,4 +107,5 @@ namespace OpenCvSharp.XFeatures2D
 
         #endregion
     }
+    */
 }

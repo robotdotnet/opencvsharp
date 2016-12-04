@@ -8,6 +8,7 @@ namespace OpenCvSharp
 {
     partial class NativeMethods
     {
+        /*
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate void optflow_motempl_updateMotionHistoryDelegate(
             IntPtr silhouette, IntPtr mhi,
@@ -61,5 +62,6 @@ namespace OpenCvSharp
             double upscaleSigmaColor,
             double speedUpThr);
         [NativeDelegate("optflow_calcOpticalFlowSF2")] public static optflow_calcOpticalFlowSF2Delegate optflow_calcOpticalFlowSF2;
+        */
     }
 }

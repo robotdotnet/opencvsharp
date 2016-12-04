@@ -51,19 +51,22 @@ namespace OpenCvSharp
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate void superres_SuperResolution_collectGarbageDelegate(IntPtr obj);
         [NativeDelegate("superres_SuperResolution_collectGarbage")] public static superres_SuperResolution_collectGarbageDelegate superres_SuperResolution_collectGarbage;
+        /*
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate IntPtr superres_SuperResolution_infoDelegate(IntPtr obj);
         [NativeDelegate("superres_SuperResolution_info")] public static superres_SuperResolution_infoDelegate superres_SuperResolution_info;
-
+        */
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate IntPtr superres_createSuperResolution_BTVL1Delegate();
         [NativeDelegate("superres_createSuperResolution_BTVL1")] public static superres_createSuperResolution_BTVL1Delegate superres_createSuperResolution_BTVL1;
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate IntPtr superres_createSuperResolution_BTVL1_CUDADelegate();
         [NativeDelegate("superres_createSuperResolution_BTVL1_CUDA")] public static superres_createSuperResolution_BTVL1_CUDADelegate superres_createSuperResolution_BTVL1_CUDA;
+        /*
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate IntPtr superres_createSuperResolution_BTVL1_OCLDelegate();
         [NativeDelegate("superres_createSuperResolution_BTVL1_OCL")] public static superres_createSuperResolution_BTVL1_OCLDelegate superres_createSuperResolution_BTVL1_OCL;
+        */
 
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate IntPtr superres_Ptr_SuperResolution_getDelegate(IntPtr ptr);
@@ -80,10 +83,11 @@ namespace OpenCvSharp
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate void superres_DenseOpticalFlowExt_collectGarbageDelegate(IntPtr obj);
         [NativeDelegate("superres_DenseOpticalFlowExt_collectGarbage")] public static superres_DenseOpticalFlowExt_collectGarbageDelegate superres_DenseOpticalFlowExt_collectGarbage;
+        /*
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate IntPtr superres_DenseOpticalFlowExt_infoDelegate(IntPtr obj);
         [NativeDelegate("superres_DenseOpticalFlowExt_info")] public static superres_DenseOpticalFlowExt_infoDelegate superres_DenseOpticalFlowExt_info;
-
+        */
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate IntPtr superres_Ptr_DenseOpticalFlowExt_getDelegate(IntPtr ptr);
         [NativeDelegate("superres_Ptr_DenseOpticalFlowExt_get")] public static ObjFunc superres_Ptr_DenseOpticalFlowExt_get;
@@ -98,30 +102,36 @@ namespace OpenCvSharp
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate IntPtr superres_createOptFlow_Farneback_CUDADelegate();
         [NativeDelegate("superres_createOptFlow_Farneback_CUDA")] public static superres_createOptFlow_Farneback_CUDADelegate superres_createOptFlow_Farneback_CUDA;
+        /*
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate IntPtr superres_createOptFlow_Farneback_OCLDelegate();
         [NativeDelegate("superres_createOptFlow_Farneback_OCL")] public static superres_createOptFlow_Farneback_OCLDelegate superres_createOptFlow_Farneback_OCL;
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate IntPtr superres_createOptFlow_SimpleDelegate();
         [NativeDelegate("superres_createOptFlow_Simple")] public static superres_createOptFlow_SimpleDelegate superres_createOptFlow_Simple;
+        */
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate IntPtr superres_createOptFlow_DualTVL1Delegate();
         [NativeDelegate("superres_createOptFlow_DualTVL1")] public static superres_createOptFlow_DualTVL1Delegate superres_createOptFlow_DualTVL1;
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate IntPtr superres_createOptFlow_DualTVL1_CUDADelegate();
         [NativeDelegate("superres_createOptFlow_DualTVL1_CUDA")] public static superres_createOptFlow_DualTVL1_CUDADelegate superres_createOptFlow_DualTVL1_CUDA;
+        /*
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate IntPtr superres_createOptFlow_DualTVL1_OCLDelegate();
         [NativeDelegate("superres_createOptFlow_DualTVL1_OCL")] public static superres_createOptFlow_DualTVL1_OCLDelegate superres_createOptFlow_DualTVL1_OCL;
+        */
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate IntPtr superres_createOptFlow_Brox_CUDADelegate();
         [NativeDelegate("superres_createOptFlow_Brox_CUDA")] public static superres_createOptFlow_Brox_CUDADelegate superres_createOptFlow_Brox_CUDA;
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate IntPtr superres_createOptFlow_PyrLK_CUDADelegate();
         [NativeDelegate("superres_createOptFlow_PyrLK_CUDA")] public static superres_createOptFlow_PyrLK_CUDADelegate superres_createOptFlow_PyrLK_CUDA;
+        /*
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate IntPtr superres_createOptFlow_PyrLK_OCLDelegate();
         [NativeDelegate("superres_createOptFlow_PyrLK_OCL")] public static superres_createOptFlow_PyrLK_OCLDelegate superres_createOptFlow_PyrLK_OCL;
+        */
 
     }
 }

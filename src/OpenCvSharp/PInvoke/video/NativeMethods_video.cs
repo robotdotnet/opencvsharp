@@ -119,10 +119,11 @@ namespace OpenCvSharp
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate void video_DenseOpticalFlow_collectGarbageDelegate(IntPtr obj);
         [NativeDelegate("video_DenseOpticalFlow_collectGarbage")] public static video_DenseOpticalFlow_collectGarbageDelegate video_DenseOpticalFlow_collectGarbage;
+        /*
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate IntPtr video_DenseOpticalFlow_infoDelegate(IntPtr obj);
         [NativeDelegate("video_DenseOpticalFlow_info")] public static video_DenseOpticalFlow_infoDelegate video_DenseOpticalFlow_info;
-
+        */
         // TODO
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate IntPtr video_createOptFlow_DualTVL1Delegate();

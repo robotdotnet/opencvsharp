@@ -2,6 +2,7 @@
 
 namespace OpenCvSharp.XFeatures2D
 {
+    /*
 #if LANG_JP
     /// <summary>
     /// Star Detector
@@ -110,4 +111,5 @@ namespace OpenCvSharp.XFeatures2D
 
         #endregion
     }
+    */
 }

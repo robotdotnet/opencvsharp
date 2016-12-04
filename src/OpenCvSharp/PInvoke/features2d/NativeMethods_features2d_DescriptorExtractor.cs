@@ -8,6 +8,7 @@ namespace OpenCvSharp
 {
     partial class NativeMethods
     {
+        /*
         // DescriptorExtractor
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate void features2d_DescriptorExtractor_deleteDelegate(IntPtr obj);
@@ -30,9 +31,11 @@ namespace OpenCvSharp
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate int features2d_DescriptorExtractor_emptyDelegate(IntPtr obj);
         [NativeDelegate("features2d_DescriptorExtractor_empty")] public static features2d_DescriptorExtractor_emptyDelegate features2d_DescriptorExtractor_empty;
+        /*
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate IntPtr features2d_DescriptorExtractor_infoDelegate(IntPtr obj);
         [NativeDelegate("features2d_DescriptorExtractor_info")] public static features2d_DescriptorExtractor_infoDelegate features2d_DescriptorExtractor_info;
+        
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate IntPtr features2d_DescriptorExtractor_createDelegate(
             [MarshalAs(UnmanagedType.LPStr)] string descriptorExtractorType);
@@ -44,5 +47,6 @@ namespace OpenCvSharp
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate void features2d_Ptr_DescriptorExtractor_deleteDelegate(IntPtr ptr);
         [NativeDelegate("features2d_Ptr_DescriptorExtractor_delete")] public static features2d_Ptr_DescriptorExtractor_deleteDelegate features2d_Ptr_DescriptorExtractor_delete;
+        */
     }
 }

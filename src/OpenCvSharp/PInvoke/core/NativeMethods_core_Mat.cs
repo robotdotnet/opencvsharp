@@ -240,8 +240,8 @@ namespace OpenCvSharp
         public delegate IntPtr core_Mat_subMat1Delegate(IntPtr self, int rowStart, int rowEnd, int colStart, int colEnd);
         [NativeDelegate("core_Mat_subMat1")] public static core_Mat_subMat1Delegate core_Mat_subMat1;
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-        public delegate IntPtr core_Mat_subMa2tDelegate(IntPtr self, int nRanges, Range[] ranges);
-        [NativeDelegate("core_Mat_subMa2t")] public static core_Mat_subMa2tDelegate core_Mat_subMa2t;
+        public delegate IntPtr core_Mat_subMatDelegate2(IntPtr self, int nRanges, Range[] ranges);
+        [NativeDelegate("core_Mat_subMat2")] public static core_Mat_subMatDelegate2 core_Mat_subMat2;
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate IntPtr core_Mat_tDelegate(IntPtr self);
         [NativeDelegate("core_Mat_t")] public static core_Mat_tDelegate core_Mat_t;

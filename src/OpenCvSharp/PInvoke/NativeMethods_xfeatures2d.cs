@@ -9,7 +9,7 @@ namespace OpenCvSharp
     partial class NativeMethods
     {
         // ReSharper disable InconsistentNaming
-
+        /*
         // BriefDescriptorExtractor
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate IntPtr xfeatures2d_BriefDescriptorExtractor_createDelegate(int bytes);
@@ -29,9 +29,11 @@ namespace OpenCvSharp
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate int xfeatures2d_BriefDescriptorExtractor_descriptorTypeDelegate(IntPtr obj);
         [NativeDelegate("xfeatures2d_BriefDescriptorExtractor_descriptorType")] public static xfeatures2d_BriefDescriptorExtractor_descriptorTypeDelegate xfeatures2d_BriefDescriptorExtractor_descriptorType;
+        /*
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate IntPtr xfeatures2d_BriefDescriptorExtractor_infoDelegate(IntPtr obj);
         [NativeDelegate("xfeatures2d_BriefDescriptorExtractor_info")] public static xfeatures2d_BriefDescriptorExtractor_infoDelegate xfeatures2d_BriefDescriptorExtractor_info;
+        
 
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate IntPtr xfeatures2d_Ptr_BriefDescriptorExtractor_getDelegate(IntPtr ptr);
@@ -46,10 +48,11 @@ namespace OpenCvSharp
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate void xfeatures2d_Ptr_FREAK_deleteDelegate(IntPtr ptr);
         [NativeDelegate("xfeatures2d_Ptr_FREAK_delete")] public static ReleaseFunc xfeatures2d_Ptr_FREAK_delete;
-
+        /*
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate IntPtr xfeatures2d_FREAK_infoDelegate(IntPtr obj);
         [NativeDelegate("xfeatures2d_FREAK_info")] public static xfeatures2d_FREAK_infoDelegate xfeatures2d_FREAK_info;
+        
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate IntPtr xfeatures2d_Ptr_FREAK_getDelegate(IntPtr ptr);
         [NativeDelegate("xfeatures2d_Ptr_FREAK_get")] public static ObjFunc xfeatures2d_Ptr_FREAK_get;
@@ -64,9 +67,11 @@ namespace OpenCvSharp
         public delegate void xfeatures2d_Ptr_StarDetector_deleteDelegate(IntPtr ptr);
         [NativeDelegate("xfeatures2d_Ptr_StarDetector_delete")] public static ReleaseFunc xfeatures2d_Ptr_StarDetector_delete;
 
+        /*
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate IntPtr xfeatures2d_StarDetector_infoDelegate(IntPtr obj);
         [NativeDelegate("xfeatures2d_StarDetector_info")] public static xfeatures2d_StarDetector_infoDelegate xfeatures2d_StarDetector_info;
+        
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate IntPtr xfeatures2d_Ptr_StarDetector_getDelegate(IntPtr ptr);
         [NativeDelegate("xfeatures2d_Ptr_StarDetector_get")] public static ObjFunc xfeatures2d_Ptr_StarDetector_get;

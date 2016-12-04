@@ -14,13 +14,11 @@ namespace OpenCvSharp
         public delegate IntPtr features2d_GFTTDetector_createDelegate(int maxCorners, double qualityLevel,
             double minDistance, int blockSize, int useHarrisDetector, double k);
         [NativeDelegate("features2d_GFTTDetector_create")] public static features2d_GFTTDetector_createDelegate features2d_GFTTDetector_create;
-        [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-        public delegate void features2d_GFTTDetector_deleteDelegate(IntPtr obj);
-        [NativeDelegate("features2d_GFTTDetector_delete")] public static features2d_GFTTDetector_deleteDelegate features2d_GFTTDetector_delete;
+        /*
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate IntPtr features2d_GFTTDetector_infoDelegate(IntPtr obj);
         [NativeDelegate("features2d_GFTTDetector_info")] public static features2d_GFTTDetector_infoDelegate features2d_GFTTDetector_info;
-
+        */
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate IntPtr features2d_Ptr_GFTTDetector_getDelegate(IntPtr ptr);
         [NativeDelegate("features2d_Ptr_GFTTDetector_get")] public static ObjFunc features2d_Ptr_GFTTDetector_get;

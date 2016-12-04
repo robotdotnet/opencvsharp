@@ -7,7 +7,7 @@ using System.Runtime.InteropServices;
 namespace OpenCvSharp
 {
     partial class NativeMethods
-    {
+    {/*
         #region BackgroundSubtractorMOG
 
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
@@ -153,5 +153,6 @@ namespace OpenCvSharp
         [NativeDelegate("bgsegm_BackgroundSubtractorGMG_setMaxVal")] public static bgsegm_BackgroundSubtractorGMG_setMaxValDelegate bgsegm_BackgroundSubtractorGMG_setMaxVal;
 
         #endregion
-    }
+        */
+        }
 }

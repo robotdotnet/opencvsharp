@@ -19,9 +19,11 @@ namespace OpenCvSharp
         public delegate void features2d_Ptr_KAZE_deleteDelegate(IntPtr ptr);
         [NativeDelegate("features2d_Ptr_KAZE_delete")] public static ReleaseFunc features2d_Ptr_KAZE_delete;
 
+        /*
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate IntPtr features2d_KAZE_infoDelegate(IntPtr obj);
         [NativeDelegate("features2d_KAZE_info")] public static features2d_KAZE_infoDelegate features2d_KAZE_info;
+        */
 
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate IntPtr features2d_Ptr_KAZE_getDelegate(IntPtr ptr);

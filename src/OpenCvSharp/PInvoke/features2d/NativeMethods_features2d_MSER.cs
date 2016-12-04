@@ -18,13 +18,16 @@ namespace OpenCvSharp
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate void features2d_Ptr_MSER_deleteDelegate(IntPtr ptr);
         [NativeDelegate("features2d_Ptr_MSER_delete")] public static ReleaseFunc features2d_Ptr_MSER_delete;
+        /*
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate void features2d_MSER_detectDelegate(IntPtr obj, IntPtr image, out IntPtr msers, IntPtr mask);
         [NativeDelegate("features2d_MSER_detect")] public static features2d_MSER_detectDelegate features2d_MSER_detect;
+        */
+        /*
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate IntPtr features2d_MSER_infoDelegate(IntPtr obj);
         [NativeDelegate("features2d_MSER_info")] public static features2d_MSER_infoDelegate features2d_MSER_info;
-
+        */
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate IntPtr features2d_Ptr_MSER_getDelegate(IntPtr ptr);
         [NativeDelegate("features2d_Ptr_MSER_get")] public static ObjFunc features2d_Ptr_MSER_get;

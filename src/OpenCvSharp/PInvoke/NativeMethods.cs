@@ -87,6 +87,7 @@ namespace OpenCvSharp
         [SecurityPermission(SecurityAction.Demand, Flags = SecurityPermissionFlag.UnmanagedCode)]
         static NativeMethods()
         {
+            Console.WriteLine("Using Native Thinggy");
             if (!s_libraryLoaded)
             {
                 try

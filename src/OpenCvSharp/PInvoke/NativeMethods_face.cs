@@ -11,9 +11,12 @@ namespace OpenCvSharp
 
     partial class NativeMethods
     {
+        /*
+        /*
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate void face_FaceRecognizer_deleteDelegate(IntPtr obj);
         [NativeDelegate("face_FaceRecognizer_delete")] public static face_FaceRecognizer_deleteDelegate face_FaceRecognizer_delete;
+        
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate void face_FaceRecognizer_trainDelegate(
         IntPtr obj, IntPtr[] src, int srcLength, int[] labels, int labelsLength);
@@ -41,9 +44,11 @@ namespace OpenCvSharp
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate void face_FaceRecognizer_load2Delegate(IntPtr obj, IntPtr fs);
         [NativeDelegate("face_FaceRecognizer_load2")] public static face_FaceRecognizer_load2Delegate face_FaceRecognizer_load2;
+        /*
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate IntPtr face_FaceRecognizer_infoDelegate(IntPtr obj);
         [NativeDelegate("face_FaceRecognizer_info")] public static face_FaceRecognizer_infoDelegate face_FaceRecognizer_info;
+        
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate IntPtr face_createEigenFaceRecognizerDelegate(
         int numComponents, double threshold);
@@ -62,5 +67,6 @@ namespace OpenCvSharp
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate void face_Ptr_FaceRecognizer_deleteDelegate(IntPtr obj);
         [NativeDelegate("face_Ptr_FaceRecognizer_delete")] public static ReleaseFunc face_Ptr_FaceRecognizer_delete;
+        */
     }
 }

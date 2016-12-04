@@ -6,6 +6,7 @@ namespace OpenCvSharp
 
     static partial class Cv2
     {
+        /*
         /// <summary>
         /// Updates motion history image using the current silhouette
         /// </summary>
@@ -207,5 +208,6 @@ namespace OpenCvSharp
                 sigmaColorFix, occThr, upscaleAveragingRadius,
                 upscaleSigmaDist, upscaleSigmaColor, speedUpThr);
         }
+        */
     }
 }

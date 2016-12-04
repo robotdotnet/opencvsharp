@@ -38,12 +38,14 @@ namespace OpenCvSharp
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate void flann_Index_saveDelegate(IntPtr obj, [MarshalAs(UnmanagedType.LPStr)] string filename);
         [NativeDelegate("flann_Index_save")] public static flann_Index_saveDelegate flann_Index_save;
+        /*
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate int flann_Index_veclenDelegate(IntPtr obj);
         [NativeDelegate("flann_Index_veclen")] public static flann_Index_veclenDelegate flann_Index_veclen;
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate int flann_Index_sizeDelegate(IntPtr obj);
         [NativeDelegate("flann_Index_size")] public static flann_Index_sizeDelegate flann_Index_size;
+        */
         #endregion
         #region IndexParams
         #region IndexParams
@@ -96,9 +98,11 @@ namespace OpenCvSharp
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate void flann_KDTreeIndexParams_deleteDelegate(IntPtr obj);
         [NativeDelegate("flann_KDTreeIndexParams_delete")] public static flann_KDTreeIndexParams_deleteDelegate flann_KDTreeIndexParams_delete;
+        /*
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public unsafe delegate int* flann_KDTreeIndexParams_treesDelegate(IntPtr obj);
         [NativeDelegate("flann_KDTreeIndexParams_trees")] public static flann_KDTreeIndexParams_treesDelegate flann_KDTreeIndexParams_trees;
+        */
         #endregion
         #region KMeansIndexParams
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
@@ -108,6 +112,7 @@ namespace OpenCvSharp
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate void flann_KMeansIndexParams_deleteDelegate(IntPtr obj);
         [NativeDelegate("flann_KMeansIndexParams_delete")] public static flann_KMeansIndexParams_deleteDelegate flann_KMeansIndexParams_delete;
+        /*
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public unsafe delegate int* flann_KMeansIndexParams_branchingDelegate(IntPtr obj);
         [NativeDelegate("flann_KMeansIndexParams_branching")] public static flann_KMeansIndexParams_branchingDelegate flann_KMeansIndexParams_branching;
@@ -120,6 +125,7 @@ namespace OpenCvSharp
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public unsafe delegate float* flann_KMeansIndexParams_cb_indexDelegate(IntPtr obj);
         [NativeDelegate("flann_KMeansIndexParams_cb_index")] public static flann_KMeansIndexParams_cb_indexDelegate flann_KMeansIndexParams_cb_index;
+        */
         #endregion
         #region CompositeIndexParams
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
@@ -128,6 +134,7 @@ namespace OpenCvSharp
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate void flann_CompositeIndexParams_deleteDelegate(IntPtr obj);
         [NativeDelegate("flann_CompositeIndexParams_delete")] public static flann_CompositeIndexParams_deleteDelegate flann_CompositeIndexParams_delete;
+        /*
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public unsafe delegate int* flann_CompositeIndexParams_treesDelegate(IntPtr obj);
         [NativeDelegate("flann_CompositeIndexParams_trees")] public static flann_CompositeIndexParams_treesDelegate flann_CompositeIndexParams_trees;
@@ -143,6 +150,7 @@ namespace OpenCvSharp
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public unsafe delegate float* flann_CompositeIndexParams_cb_indexDelegate(IntPtr obj);
         [NativeDelegate("flann_CompositeIndexParams_cb_index")] public static flann_CompositeIndexParams_cb_indexDelegate flann_CompositeIndexParams_cb_index;
+        */
         #endregion
         #region AutotunedIndexParams
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
@@ -151,6 +159,7 @@ namespace OpenCvSharp
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate void flann_AutotunedIndexParams_deleteDelegate(IntPtr obj);
         [NativeDelegate("flann_AutotunedIndexParams_delete")] public static flann_AutotunedIndexParams_deleteDelegate flann_AutotunedIndexParams_delete;
+        /*
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public unsafe delegate float* flann_AutotunedIndexParams_target_precisionDelegate(IntPtr obj);
         [NativeDelegate("flann_AutotunedIndexParams_target_precision")] public static flann_AutotunedIndexParams_target_precisionDelegate flann_AutotunedIndexParams_target_precision;
@@ -163,6 +172,7 @@ namespace OpenCvSharp
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public unsafe delegate float* flann_AutotunedIndexParams_sample_fractionDelegate(IntPtr obj);
         [NativeDelegate("flann_AutotunedIndexParams_sample_fraction")] public static flann_AutotunedIndexParams_sample_fractionDelegate flann_AutotunedIndexParams_sample_fraction;
+        */
         #endregion
         #region SavedIndexParams
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
@@ -171,6 +181,7 @@ namespace OpenCvSharp
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate void flann_SavedIndexParams_deleteDelegate(IntPtr obj);
         [NativeDelegate("flann_SavedIndexParams_delete")] public static flann_SavedIndexParams_deleteDelegate flann_SavedIndexParams_delete;
+        /*
         //[return: MarshalAs(UnmanagedType.LPStr)]
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate string flann_SavedIndexParams_filename_getDelegate(IntPtr obj);
@@ -178,6 +189,7 @@ namespace OpenCvSharp
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate void flann_SavedIndexParams_filename_setDelegate(IntPtr obj, [MarshalAs(UnmanagedType.LPStr)] string filename);
         [NativeDelegate("flann_SavedIndexParams_filename_set")] public static flann_SavedIndexParams_filename_setDelegate flann_SavedIndexParams_filename_set;
+        */
         #endregion
         #region SearchParams
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
@@ -189,8 +201,10 @@ namespace OpenCvSharp
         #endregion
 
         #endregion
+        /*
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate int flann_hierarchicalClusteringDelegate(IntPtr features, IntPtr centers, IntPtr @params);
         [NativeDelegate("flann_hierarchicalClustering")] public static flann_hierarchicalClusteringDelegate flann_hierarchicalClustering;
+        */
     }
 }

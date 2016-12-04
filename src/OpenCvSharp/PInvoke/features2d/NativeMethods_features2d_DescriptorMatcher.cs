@@ -64,11 +64,11 @@ namespace OpenCvSharp
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate IntPtr features2d_DescriptorMatcher_createDelegate([MarshalAs(UnmanagedType.LPStr)] string descriptorMatcherType);
         [NativeDelegate("features2d_DescriptorMatcher_create")] public static features2d_DescriptorMatcher_createDelegate features2d_DescriptorMatcher_create;
-
+        /*
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate IntPtr features2d_DescriptorMatcher_infoDelegate(IntPtr obj);
         [NativeDelegate("features2d_DescriptorMatcher_info")] public static features2d_DescriptorMatcher_infoDelegate features2d_DescriptorMatcher_info;
-
+        */
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate IntPtr features2d_Ptr_DescriptorMatcher_getDelegate(IntPtr ptr);
         [NativeDelegate("features2d_Ptr_DescriptorMatcher_get")] public static ObjFunc features2d_Ptr_DescriptorMatcher_get;
@@ -86,10 +86,11 @@ namespace OpenCvSharp
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate int features2d_BFMatcher_isMaskSupportedDelegate(IntPtr obj);
         [NativeDelegate("features2d_BFMatcher_isMaskSupported")] public static features2d_BFMatcher_isMaskSupportedDelegate features2d_BFMatcher_isMaskSupported;
+        /*
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate IntPtr features2d_BFMatcher_infoDelegate(IntPtr obj);
         [NativeDelegate("features2d_BFMatcher_info")] public static features2d_BFMatcher_infoDelegate features2d_BFMatcher_info;
-
+        */
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate IntPtr features2d_Ptr_BFMatcher_getDelegate(IntPtr ptr);
         [NativeDelegate("features2d_Ptr_BFMatcher_get")] public static ObjFunc features2d_Ptr_BFMatcher_get;
@@ -119,10 +120,11 @@ namespace OpenCvSharp
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate int features2d_FlannBasedMatcher_isMaskSupportedDelegate(IntPtr obj);
         [NativeDelegate("features2d_FlannBasedMatcher_isMaskSupported")] public static features2d_FlannBasedMatcher_isMaskSupportedDelegate features2d_FlannBasedMatcher_isMaskSupported;
+        /*
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate IntPtr features2d_FlannBasedMatcher_infoDelegate(IntPtr obj);
         [NativeDelegate("features2d_FlannBasedMatcher_info")] public static features2d_FlannBasedMatcher_infoDelegate features2d_FlannBasedMatcher_info;
-
+        */
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate IntPtr features2d_Ptr_FlannBasedMatcher_getDelegate(IntPtr ptr);
         [NativeDelegate("features2d_Ptr_FlannBasedMatcher_get")] public static ObjFunc features2d_Ptr_FlannBasedMatcher_get;

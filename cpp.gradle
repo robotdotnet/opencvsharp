@@ -3,7 +3,7 @@ defineCvProperties()
 def cppSetupModel = { project ->
     project.model {
         components {
-            opencvsharp(NativeLibrarySpec) {
+            OpenCvSharpExtern(NativeLibrarySpec) {
                 targetPlatform 'arm'
                 setupDefines(project, binaries)
 
