@@ -104,6 +104,9 @@ ext.useOpenCv = { project ->
         compileTask.dependsOn "unzipOpenCvHeaders", "unzipOpenCvNatives_${openCvPlatform}"
         if (targetPlatform.operatingSystem.windows) {
             linker.args "${openCvNativesFolder}/opencv.lib"
+            linker.args "${openCvNativesFolder}/Release/libjpeg.lib"
+            linker.args "${openCvNativesFolder}/Release/libpng.lib"
+            linker.args "${openCvNativesFolder}/Release/zlib.lib"
         } else {
             linker.args "-L${openCvNativesFolder}"
             linker.args "-lopencv"
