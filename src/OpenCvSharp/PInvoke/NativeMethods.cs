@@ -1,5 +1,4 @@
 using OpenCvSharp.PInvoke.NativeLibraryUtilties;
-using OpenCvSharp.PInvoke.NativeLibraryUtilties;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -24,27 +23,6 @@ namespace OpenCvSharp
         /// Is tried P/Invoke once
         /// </summary>
         private static bool tried = false;
-
-        public const string DllMsvcr = "msvcr120";
-        public const string DllMsvcp = "msvcp120";
-
-        public const string DllExtern = "OpenCvSharpExtern";
-
-        public const string Version = "310";
-
-        private static readonly string[] RuntimeDllNames =
-        {
-            DllMsvcr,
-            DllMsvcp,
-        };
-
-        private static readonly string[] OpenCVDllNames =
-        {
-            "opencv_world",
-        };
-
-        public const string DllFfmpegX86 = "opencv_ffmpeg" + Version;
-        public const string DllFfmpegX64 = DllFfmpegX86 + "_64";
 
         private static readonly bool s_libraryLoaded;
         // ReSharper disable PrivateFieldCanBeConvertedToLocalVariable
@@ -171,48 +149,6 @@ namespace OpenCvSharp
 
             // call cv to enable redirecting 
             TryPInvoke();
-        }
-
-        /// <summary>
-        /// Load DLL files dynamically using Win32 LoadLibrary
-        /// </summary>
-        /// <param name="additionalPaths"></param>
-        public static void LoadLibraries(IEnumerable<string> additionalPaths = null)
-        {
-            if (IsUnix())
-                return;
-
-            string[] ap = EnumerableEx.ToArray(additionalPaths);
-            List<string> runtimePaths = new List<string> (ap);
-            runtimePaths.Add(Environment.GetFolderPath(Environment.SpecialFolder.System));
-            
-            foreach (string dll in RuntimeDllNames)
-            {
-                //WindowsLibraryLoader.Instance.LoadLibrary(dll, runtimePaths);
-            }
-            foreach (string dll in OpenCVDllNames)
-            {
-                //WindowsLibraryLoader.Instance.LoadLibrary(dll + Version, ap);
-            }
-
-            // calib3d, contrib, core, features2d, flann, highgui, imgproc, legacy,
-            // ml, nonfree, objdetect, photo, superres, video, videostab
-            //WindowsLibraryLoader.Instance.LoadLibrary(DllExtern, ap);
-
-            // Redirection of error occurred in native library 
-            IntPtr zero = IntPtr.Zero;
-            IntPtr current = redirectError(ErrorHandlerThrowException, zero, ref zero);
-            if (current != IntPtr.Zero)
-            {
-                ErrorHandlerDefault = (CvErrorCallback)Marshal.GetDelegateForFunctionPointer(
-                    current,
-                    typeof(CvErrorCallback)
-                );
-            }
-            else
-            {
-                ErrorHandlerDefault = null;
-            }
         }
 
         /// <summary>
