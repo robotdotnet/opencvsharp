@@ -5,7 +5,7 @@ def cppSetupModel = { project ->
                 if (project.isArm) {
                     targetPlatform 'arm'
                 } else {
-                    //targetPlatform 'x86'
+                    targetPlatform 'x86'
                     targetPlatform 'x64'
                 }
 
