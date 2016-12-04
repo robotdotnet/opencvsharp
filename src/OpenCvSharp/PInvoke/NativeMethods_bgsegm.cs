@@ -1,122 +1,158 @@
-﻿using System;
+using OpenCvSharp.PInvoke.NativeLibraryUtilties;
+using System;
 using System.Runtime.InteropServices;
 
 #pragma warning disable 1591
 
 namespace OpenCvSharp
 {
-    static partial class NativeMethods
-    {
+    partial class NativeMethods
+    {/*
         #region BackgroundSubtractorMOG
 
-        [DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl)]
-        public static extern IntPtr bgsegm_createBackgroundSubtractorMOG(
+        [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+        public delegate IntPtr bgsegm_createBackgroundSubtractorMOGDelegate(
             int history, int nmixtures, double backgroundRatio, double noiseSigma);
+        [NativeDelegate("bgsegm_createBackgroundSubtractorMOG")] public static bgsegm_createBackgroundSubtractorMOGDelegate bgsegm_createBackgroundSubtractorMOG;
 
-        [DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl)]
-        public static extern void bgsegm_Ptr_BackgroundSubtractorMOG_delete(IntPtr obj);
+        [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+        public delegate void bgsegm_Ptr_BackgroundSubtractorMOG_deleteDelegate(IntPtr obj);
+        [NativeDelegate("bgsegm_Ptr_BackgroundSubtractorMOG_delete")] public static ReleaseFunc bgsegm_Ptr_BackgroundSubtractorMOG_delete;
 
-        [DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl)]
-        public static extern IntPtr bgsegm_Ptr_BackgroundSubtractorMOG_get(IntPtr ptr);
+        [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+        public delegate IntPtr bgsegm_Ptr_BackgroundSubtractorMOG_getDelegate(IntPtr ptr);
+        [NativeDelegate("bgsegm_Ptr_BackgroundSubtractorMOG_get")] public static ObjFunc bgsegm_Ptr_BackgroundSubtractorMOG_get;
 
-        [DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl)]
-        public static extern int bgsegm_BackgroundSubtractorMOG_getHistory(IntPtr ptr);
+        [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+        public delegate int bgsegm_BackgroundSubtractorMOG_getHistoryDelegate(IntPtr ptr);
+        [NativeDelegate("bgsegm_BackgroundSubtractorMOG_getHistory")] public static bgsegm_BackgroundSubtractorMOG_getHistoryDelegate bgsegm_BackgroundSubtractorMOG_getHistory;
 
-        [DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl)]
-        public static extern void bgsegm_BackgroundSubtractorMOG_setHistory(IntPtr ptr, int value);
+        [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+        public delegate void bgsegm_BackgroundSubtractorMOG_setHistoryDelegate(IntPtr ptr, int value);
+        [NativeDelegate("bgsegm_BackgroundSubtractorMOG_setHistory")] public static bgsegm_BackgroundSubtractorMOG_setHistoryDelegate bgsegm_BackgroundSubtractorMOG_setHistory;
 
-        [DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl)]
-        public static extern int bgsegm_BackgroundSubtractorMOG_getNMixtures(IntPtr ptr);
+        [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+        public delegate int bgsegm_BackgroundSubtractorMOG_getNMixturesDelegate(IntPtr ptr);
+        [NativeDelegate("bgsegm_BackgroundSubtractorMOG_getNMixtures")] public static bgsegm_BackgroundSubtractorMOG_getNMixturesDelegate bgsegm_BackgroundSubtractorMOG_getNMixtures;
 
-        [DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl)]
-        public static extern void bgsegm_BackgroundSubtractorMOG_setNMixtures(IntPtr ptr, int value);
+        [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+        public delegate void bgsegm_BackgroundSubtractorMOG_setNMixturesDelegate(IntPtr ptr, int value);
+        [NativeDelegate("bgsegm_BackgroundSubtractorMOG_setNMixtures")] public static bgsegm_BackgroundSubtractorMOG_setNMixturesDelegate bgsegm_BackgroundSubtractorMOG_setNMixtures;
 
-        [DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl)]
-        public static extern double bgsegm_BackgroundSubtractorMOG_getBackgroundRatio(IntPtr ptr);
+        [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+        public delegate double bgsegm_BackgroundSubtractorMOG_getBackgroundRatioDelegate(IntPtr ptr);
+        [NativeDelegate("bgsegm_BackgroundSubtractorMOG_getBackgroundRatio")] public static bgsegm_BackgroundSubtractorMOG_getBackgroundRatioDelegate bgsegm_BackgroundSubtractorMOG_getBackgroundRatio;
 
-        [DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl)]
-        public static extern void bgsegm_BackgroundSubtractorMOG_setBackgroundRatio(IntPtr ptr, double value);
+        [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+        public delegate void bgsegm_BackgroundSubtractorMOG_setBackgroundRatioDelegate(IntPtr ptr, double value);
+        [NativeDelegate("bgsegm_BackgroundSubtractorMOG_setBackgroundRatio")] public static bgsegm_BackgroundSubtractorMOG_setBackgroundRatioDelegate bgsegm_BackgroundSubtractorMOG_setBackgroundRatio;
 
-        [DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl)]
-        public static extern double bgsegm_BackgroundSubtractorMOG_getNoiseSigma(IntPtr ptr);
+        [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+        public delegate double bgsegm_BackgroundSubtractorMOG_getNoiseSigmaDelegate(IntPtr ptr);
+        [NativeDelegate("bgsegm_BackgroundSubtractorMOG_getNoiseSigma")] public static bgsegm_BackgroundSubtractorMOG_getNoiseSigmaDelegate bgsegm_BackgroundSubtractorMOG_getNoiseSigma;
 
-        [DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl)]
-        public static extern void bgsegm_BackgroundSubtractorMOG_setNoiseSigma(IntPtr ptr, double value);
+        [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+        public delegate void bgsegm_BackgroundSubtractorMOG_setNoiseSigmaDelegate(IntPtr ptr, double value);
+        [NativeDelegate("bgsegm_BackgroundSubtractorMOG_setNoiseSigma")] public static bgsegm_BackgroundSubtractorMOG_setNoiseSigmaDelegate bgsegm_BackgroundSubtractorMOG_setNoiseSigma;
 
         #endregion
 
         #region BackgroundSubtractorGMG
 
-        [DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl)]
-        public static extern IntPtr bgsegm_createBackgroundSubtractorGMG(
+        [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+        public delegate IntPtr bgsegm_createBackgroundSubtractorGMGDelegate(
             int initializationFrames, double decisionThreshold);
+        [NativeDelegate("bgsegm_createBackgroundSubtractorGMG")] public static bgsegm_createBackgroundSubtractorGMGDelegate bgsegm_createBackgroundSubtractorGMG;
 
-        [DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl)]
-        public static extern void bgsegm_Ptr_BackgroundSubtractorGMG_delete(IntPtr obj);
+        [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+        public delegate void bgsegm_Ptr_BackgroundSubtractorGMG_deleteDelegate(IntPtr obj);
+        [NativeDelegate("bgsegm_Ptr_BackgroundSubtractorGMG_delete")] public static ReleaseFunc bgsegm_Ptr_BackgroundSubtractorGMG_delete;
         
-        [DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl)]
-        public static extern IntPtr bgsegm_Ptr_BackgroundSubtractorGMG_get(IntPtr ptr);
+        [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+        public delegate IntPtr bgsegm_Ptr_BackgroundSubtractorGMG_getDelegate(IntPtr ptr);
+        [NativeDelegate("bgsegm_Ptr_BackgroundSubtractorGMG_get")] public static ObjFunc bgsegm_Ptr_BackgroundSubtractorGMG_get;
 
-        [DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl)]
-        public static extern int bgsegm_BackgroundSubtractorGMG_getMaxFeatures(IntPtr ptr);
+        [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+        public delegate int bgsegm_BackgroundSubtractorGMG_getMaxFeaturesDelegate(IntPtr ptr);
+        [NativeDelegate("bgsegm_BackgroundSubtractorGMG_getMaxFeatures")] public static bgsegm_BackgroundSubtractorGMG_getMaxFeaturesDelegate bgsegm_BackgroundSubtractorGMG_getMaxFeatures;
 
-        [DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl)]
-        public static extern void bgsegm_BackgroundSubtractorGMG_setMaxFeatures(IntPtr ptr, int value);
+        [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+        public delegate void bgsegm_BackgroundSubtractorGMG_setMaxFeaturesDelegate(IntPtr ptr, int value);
+        [NativeDelegate("bgsegm_BackgroundSubtractorGMG_setMaxFeatures")] public static bgsegm_BackgroundSubtractorGMG_setMaxFeaturesDelegate bgsegm_BackgroundSubtractorGMG_setMaxFeatures;
 
-        [DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl)]
-        public static extern double bgsegm_BackgroundSubtractorGMG_getDefaultLearningRate(IntPtr ptr);
+        [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+        public delegate double bgsegm_BackgroundSubtractorGMG_getDefaultLearningRateDelegate(IntPtr ptr);
+        [NativeDelegate("bgsegm_BackgroundSubtractorGMG_getDefaultLearningRate")] public static bgsegm_BackgroundSubtractorGMG_getDefaultLearningRateDelegate bgsegm_BackgroundSubtractorGMG_getDefaultLearningRate;
 
-        [DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl)]
-        public static extern void bgsegm_BackgroundSubtractorGMG_setDefaultLearningRate(IntPtr ptr, double value);
+        [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+        public delegate void bgsegm_BackgroundSubtractorGMG_setDefaultLearningRateDelegate(IntPtr ptr, double value);
+        [NativeDelegate("bgsegm_BackgroundSubtractorGMG_setDefaultLearningRate")] public static bgsegm_BackgroundSubtractorGMG_setDefaultLearningRateDelegate bgsegm_BackgroundSubtractorGMG_setDefaultLearningRate;
 
-        [DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl)]
-        public static extern int bgsegm_BackgroundSubtractorGMG_getNumFrames(IntPtr ptr);
+        [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+        public delegate int bgsegm_BackgroundSubtractorGMG_getNumFramesDelegate(IntPtr ptr);
+        [NativeDelegate("bgsegm_BackgroundSubtractorGMG_getNumFrames")] public static bgsegm_BackgroundSubtractorGMG_getNumFramesDelegate bgsegm_BackgroundSubtractorGMG_getNumFrames;
 
-        [DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl)]
-        public static extern void bgsegm_BackgroundSubtractorGMG_setNumFrames(IntPtr ptr, int value);
+        [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+        public delegate void bgsegm_BackgroundSubtractorGMG_setNumFramesDelegate(IntPtr ptr, int value);
+        [NativeDelegate("bgsegm_BackgroundSubtractorGMG_setNumFrames")] public static bgsegm_BackgroundSubtractorGMG_setNumFramesDelegate bgsegm_BackgroundSubtractorGMG_setNumFrames;
 
-        [DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl)]
-        public static extern int bgsegm_BackgroundSubtractorGMG_getQuantizationLevels(IntPtr ptr);
+        [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+        public delegate int bgsegm_BackgroundSubtractorGMG_getQuantizationLevelsDelegate(IntPtr ptr);
+        [NativeDelegate("bgsegm_BackgroundSubtractorGMG_getQuantizationLevels")] public static bgsegm_BackgroundSubtractorGMG_getQuantizationLevelsDelegate bgsegm_BackgroundSubtractorGMG_getQuantizationLevels;
 
-        [DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl)]
-        public static extern void bgsegm_BackgroundSubtractorGMG_setQuantizationLevels(IntPtr ptr, int value);
+        [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+        public delegate void bgsegm_BackgroundSubtractorGMG_setQuantizationLevelsDelegate(IntPtr ptr, int value);
+        [NativeDelegate("bgsegm_BackgroundSubtractorGMG_setQuantizationLevels")] public static bgsegm_BackgroundSubtractorGMG_setQuantizationLevelsDelegate bgsegm_BackgroundSubtractorGMG_setQuantizationLevels;
 
-        [DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl)]
-        public static extern double bgsegm_BackgroundSubtractorGMG_getBackgroundPrior(IntPtr ptr);
+        [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+        public delegate double bgsegm_BackgroundSubtractorGMG_getBackgroundPriorDelegate(IntPtr ptr);
+        [NativeDelegate("bgsegm_BackgroundSubtractorGMG_getBackgroundPrior")] public static bgsegm_BackgroundSubtractorGMG_getBackgroundPriorDelegate bgsegm_BackgroundSubtractorGMG_getBackgroundPrior;
 
-        [DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl)]
-        public static extern void bgsegm_BackgroundSubtractorGMG_setBackgroundPrior(IntPtr ptr, double value);
+        [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+        public delegate void bgsegm_BackgroundSubtractorGMG_setBackgroundPriorDelegate(IntPtr ptr, double value);
+        [NativeDelegate("bgsegm_BackgroundSubtractorGMG_setBackgroundPrior")] public static bgsegm_BackgroundSubtractorGMG_setBackgroundPriorDelegate bgsegm_BackgroundSubtractorGMG_setBackgroundPrior;
 
-        [DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl)]
-        public static extern int bgsegm_BackgroundSubtractorGMG_getSmoothingRadius(IntPtr ptr);
+        [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+        public delegate int bgsegm_BackgroundSubtractorGMG_getSmoothingRadiusDelegate(IntPtr ptr);
+        [NativeDelegate("bgsegm_BackgroundSubtractorGMG_getSmoothingRadius")] public static bgsegm_BackgroundSubtractorGMG_getSmoothingRadiusDelegate bgsegm_BackgroundSubtractorGMG_getSmoothingRadius;
 
-        [DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl)]
-        public static extern void bgsegm_BackgroundSubtractorGMG_setSmoothingRadius(IntPtr ptr, int value);
+        [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+        public delegate void bgsegm_BackgroundSubtractorGMG_setSmoothingRadiusDelegate(IntPtr ptr, int value);
+        [NativeDelegate("bgsegm_BackgroundSubtractorGMG_setSmoothingRadius")] public static bgsegm_BackgroundSubtractorGMG_setSmoothingRadiusDelegate bgsegm_BackgroundSubtractorGMG_setSmoothingRadius;
 
-        [DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl)]
-        public static extern double bgsegm_BackgroundSubtractorGMG_getDecisionThreshold(IntPtr ptr);
+        [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+        public delegate double bgsegm_BackgroundSubtractorGMG_getDecisionThresholdDelegate(IntPtr ptr);
+        [NativeDelegate("bgsegm_BackgroundSubtractorGMG_getDecisionThreshold")] public static bgsegm_BackgroundSubtractorGMG_getDecisionThresholdDelegate bgsegm_BackgroundSubtractorGMG_getDecisionThreshold;
 
-        [DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl)]
-        public static extern void bgsegm_BackgroundSubtractorGMG_setDecisionThreshold(IntPtr ptr, double value);
+        [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+        public delegate void bgsegm_BackgroundSubtractorGMG_setDecisionThresholdDelegate(IntPtr ptr, double value);
+        [NativeDelegate("bgsegm_BackgroundSubtractorGMG_setDecisionThreshold")] public static bgsegm_BackgroundSubtractorGMG_setDecisionThresholdDelegate bgsegm_BackgroundSubtractorGMG_setDecisionThreshold;
 
-        [DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl)]
-        public static extern int bgsegm_BackgroundSubtractorGMG_getUpdateBackgroundModel(IntPtr ptr);
+        [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+        public delegate int bgsegm_BackgroundSubtractorGMG_getUpdateBackgroundModelDelegate(IntPtr ptr);
+        [NativeDelegate("bgsegm_BackgroundSubtractorGMG_getUpdateBackgroundModel")] public static bgsegm_BackgroundSubtractorGMG_getUpdateBackgroundModelDelegate bgsegm_BackgroundSubtractorGMG_getUpdateBackgroundModel;
 
-        [DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl)]
-        public static extern void bgsegm_BackgroundSubtractorGMG_setUpdateBackgroundModel(IntPtr ptr, int value);
+        [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+        public delegate void bgsegm_BackgroundSubtractorGMG_setUpdateBackgroundModelDelegate(IntPtr ptr, int value);
+        [NativeDelegate("bgsegm_BackgroundSubtractorGMG_setUpdateBackgroundModel")] public static bgsegm_BackgroundSubtractorGMG_setUpdateBackgroundModelDelegate bgsegm_BackgroundSubtractorGMG_setUpdateBackgroundModel;
 
-        [DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl)]
-        public static extern double bgsegm_BackgroundSubtractorGMG_getMinVal(IntPtr ptr);
+        [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+        public delegate double bgsegm_BackgroundSubtractorGMG_getMinValDelegate(IntPtr ptr);
+        [NativeDelegate("bgsegm_BackgroundSubtractorGMG_getMinVal")] public static bgsegm_BackgroundSubtractorGMG_getMinValDelegate bgsegm_BackgroundSubtractorGMG_getMinVal;
 
-        [DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl)]
-        public static extern void bgsegm_BackgroundSubtractorGMG_setMinVal(IntPtr ptr, double value);
+        [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+        public delegate void bgsegm_BackgroundSubtractorGMG_setMinValDelegate(IntPtr ptr, double value);
+        [NativeDelegate("bgsegm_BackgroundSubtractorGMG_setMinVal")] public static bgsegm_BackgroundSubtractorGMG_setMinValDelegate bgsegm_BackgroundSubtractorGMG_setMinVal;
 
-        [DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl)]
-        public static extern double bgsegm_BackgroundSubtractorGMG_getMaxVal(IntPtr ptr);
+        [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+        public delegate double bgsegm_BackgroundSubtractorGMG_getMaxValDelegate(IntPtr ptr);
+        [NativeDelegate("bgsegm_BackgroundSubtractorGMG_getMaxVal")] public static bgsegm_BackgroundSubtractorGMG_getMaxValDelegate bgsegm_BackgroundSubtractorGMG_getMaxVal;
 
-        [DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl)]
-        public static extern void bgsegm_BackgroundSubtractorGMG_setMaxVal(IntPtr ptr, double value);
+        [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+        public delegate void bgsegm_BackgroundSubtractorGMG_setMaxValDelegate(IntPtr ptr, double value);
+        [NativeDelegate("bgsegm_BackgroundSubtractorGMG_setMaxVal")] public static bgsegm_BackgroundSubtractorGMG_setMaxValDelegate bgsegm_BackgroundSubtractorGMG_setMaxVal;
 
         #endregion
-    }
+        */
+        }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+using OpenCvSharp.PInvoke.NativeLibraryUtilties;
+using System;
 using System.Runtime.InteropServices;
 
 #pragma warning disable 1591
@@ -95,17 +96,6 @@ namespace OpenCvSharp
             public RGBQUAD[] Colors;
         };
         #endregion
-
-        #region DllImport
-        #region kernel32
-        [DllImport("kernel32")]
-        public static extern IntPtr LoadLibrary(string lpFileName);
-        [DllImport("kernel32")]
-        public static extern IntPtr GetProcAddress(IntPtr hModule, string lpProcName);
-        [DllImport("kernel32")]
-        [return: MarshalAs(UnmanagedType.Bool)]
-        public static extern bool FreeLibrary(IntPtr hLibModule);
-        #endregion
         #region gdi32
 #if LANG_JP
         /// <summary>
@@ -142,28 +132,39 @@ namespace OpenCvSharp
         /// <param name="fuColorUse"></param>
         /// <returns></returns>
 #endif
-        [DllImport("gdi32")]
-        public static extern int SetDIBitsToDevice(IntPtr hdc, Int32 XDest, Int32 YDest, UInt32 dwWidth, UInt32 dwHeight, Int32 XSrc, Int32 YSrc, UInt32 uStartScan, UInt32 cScanLines, IntPtr lpvBits, ref BITMAPINFO lpbmi, UInt32 fuColorUse);
-        [DllImport("gdi32")]
-        public static extern int SetDIBitsToDevice(IntPtr hdc, Int32 XDest, Int32 YDest, UInt32 dwWidth, UInt32 dwHeight, Int32 XSrc, Int32 YSrc, UInt32 uStartScan, UInt32 cScanLines, IntPtr lpvBits, IntPtr lpbmi, UInt32 fuColorUse);
-        [DllImport("gdi32", SetLastError = true)]
-        public static extern int GetDIBColorTable(IntPtr dc, int index, int entries, [In, Out] RGBQUAD[] colors);
-        [DllImport("gdi32", SetLastError = true)]
-        public static extern int GetDIBits(IntPtr dc, IntPtr bmp, int startScan, int scanLineCount, [In, Out] byte[] data, IntPtr info, ColorTableType usage);
-        [DllImport("gdi32", SetLastError = true)]
-        public static extern IntPtr CreateCompatibleDC(IntPtr hdc);
-        [DllImport("user32", SetLastError = true)]
-        public static extern bool GetIconInfo(IntPtr icon, out ICONINFO info);
-        [DllImport("user32", SetLastError = true)]
-        public static extern IntPtr GetDC(IntPtr window);
-        [DllImport("user32", SetLastError = true)]
-        public static extern bool ReleaseDC(IntPtr window, IntPtr dc);
-        [DllImport("gdi32", SetLastError = true)]
-        public static extern IntPtr SelectObject(IntPtr hdc, IntPtr obj);
-        [DllImport("gdi32", SetLastError = true)]
-        public static extern bool DeleteObject(IntPtr handle);
-        [DllImport("gdi32", SetLastError = true)]
-        public static extern bool DeleteDC(IntPtr hdc);
+        [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+        public delegate int SetDIBitsToDeviceDelegate(IntPtr hdc, Int32 XDest, Int32 YDest, UInt32 dwWidth, UInt32 dwHeight, Int32 XSrc, Int32 YSrc, UInt32 uStartScan, UInt32 cScanLines, IntPtr lpvBits, ref BITMAPINFO lpbmi, UInt32 fuColorUse);
+        [NativeDelegate("SetDIBitsToDevice")] public static SetDIBitsToDeviceDelegate SetDIBitsToDevice;
+        [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+        public delegate int SetDIBitsToDeviceDelegate2(IntPtr hdc, Int32 XDest, Int32 YDest, UInt32 dwWidth, UInt32 dwHeight, Int32 XSrc, Int32 YSrc, UInt32 uStartScan, UInt32 cScanLines, IntPtr lpvBits, IntPtr lpbmi, UInt32 fuColorUse);
+        [NativeDelegate("SetDIBitsToDevice")] public static SetDIBitsToDeviceDelegate2 SetDIBitsToDevice2;
+        [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+        public delegate int GetDIBColorTableDelegate(IntPtr dc, int index, int entries, [In, Out] RGBQUAD[] colors);
+        [NativeDelegate("GetDIBColorTable")] public static GetDIBColorTableDelegate GetDIBColorTable;
+        [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+        public delegate int GetDIBitsDelegate(IntPtr dc, IntPtr bmp, int startScan, int scanLineCount, [In, Out] byte[] data, IntPtr info, ColorTableType usage);
+        [NativeDelegate("GetDIBits")] public static GetDIBitsDelegate GetDIBits;
+        [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+        public delegate IntPtr CreateCompatibleDCDelegate(IntPtr hdc);
+        [NativeDelegate("CreateCompatibleDC")] public static CreateCompatibleDCDelegate CreateCompatibleDC;
+        [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+        public delegate bool GetIconInfoDelegate(IntPtr icon, out ICONINFO info);
+        [NativeDelegate("GetIconInfo")] public static GetIconInfoDelegate GetIconInfo;
+        [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+        public delegate IntPtr GetDCDelegate(IntPtr window);
+        [NativeDelegate("GetDC")] public static GetDCDelegate GetDC;
+        [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+        public delegate bool ReleaseDCDelegate(IntPtr window, IntPtr dc);
+        [NativeDelegate("ReleaseDC")] public static ReleaseDCDelegate ReleaseDC;
+        [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+        public delegate IntPtr SelectObjectDelegate(IntPtr hdc, IntPtr obj);
+        [NativeDelegate("SelectObject")] public static SelectObjectDelegate SelectObject;
+        [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+        public delegate bool DeleteObjectDelegate(IntPtr handle);
+        [NativeDelegate("DeleteObject")] public static DeleteObjectDelegate DeleteObject;
+        [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+        public delegate bool DeleteDCDelegate(IntPtr hdc);
+        [NativeDelegate("DeleteDC")] public static DeleteDCDelegate DeleteDC;
 #if LANG_JP
         /// <summary>
         /// 指定されたデバイスコンテキストのビットマップ伸縮モードを設定します
@@ -179,8 +180,9 @@ namespace OpenCvSharp
         /// <param name="iStretchMode"></param>
         /// <returns></returns>
 #endif
-        [DllImport("gdi32", SetLastError = true)]
-        public static extern int SetStretchBltMode(IntPtr hdc, int iStretchMode);
+        [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+        public delegate int SetStretchBltModeDelegate(IntPtr hdc, int iStretchMode);
+        [NativeDelegate("SetStretchBltMode")] public static SetStretchBltModeDelegate SetStretchBltMode;
 #if LANG_JP
         /// <summary>
         /// 指定されたデバイス独立ビットマップ（DIB）内の長方形ピクセルの色データを、指定された長方形へコピーします。
@@ -220,9 +222,9 @@ namespace OpenCvSharp
         /// <param name="dwRop"></param>
         /// <returns></returns>
 #endif
-        [DllImport("gdi32", SetLastError = true)]
-        public static extern int StretchDIBits(IntPtr hdc, Int32 XDest, Int32 YDest, Int32 nDestWidth, Int32 nDestHeight, Int32 XSrc, Int32 YSrc, Int32 nSrcWidth, Int32 nSrcHeight, IntPtr lpBits, ref BITMAPINFO lpBitsInfo, UInt32 iUsage, UInt32 dwRop);
-        #endregion
+        [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+        public delegate int StretchDIBitsDelegate(IntPtr hdc, Int32 XDest, Int32 YDest, Int32 nDestWidth, Int32 nDestHeight, Int32 XSrc, Int32 YSrc, Int32 nSrcWidth, Int32 nSrcHeight, IntPtr lpBits, ref BITMAPINFO lpBitsInfo, UInt32 iUsage, UInt32 dwRop);
+        [NativeDelegate("StretchDIBits")] public static StretchDIBitsDelegate StretchDIBits;
         #endregion
     }
 

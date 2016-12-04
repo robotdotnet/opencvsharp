@@ -2,6 +2,7 @@
 
 namespace OpenCvSharp.XFeatures2D
 {
+    /*
     using DescriptorExtractor = Feature2D;
 
     /// <summary>
@@ -87,4 +88,5 @@ namespace OpenCvSharp.XFeatures2D
             }
         }
     }
+    */
 }

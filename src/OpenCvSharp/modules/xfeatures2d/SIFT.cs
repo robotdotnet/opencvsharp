@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-
+/*
 namespace OpenCvSharp.XFeatures2D
 {
     // ReSharper disable InconsistentNaming
@@ -105,3 +105,4 @@ namespace OpenCvSharp.XFeatures2D
         #endregion
     }
 }
+*/

@@ -1,6 +1,6 @@
 ﻿
 using System;
-
+/*
 namespace OpenCvSharp.XFeatures2D
 {
 #if LANG_JP
@@ -204,3 +204,4 @@ namespace OpenCvSharp.XFeatures2D
         #endregion
     }
 }
+*/

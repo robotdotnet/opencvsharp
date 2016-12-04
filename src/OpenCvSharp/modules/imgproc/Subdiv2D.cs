@@ -34,7 +34,7 @@ namespace OpenCvSharp
 #endif
         public Subdiv2D()
         {
-            ptr = NativeMethods.imgproc_Subdiv2D_new();
+            ptr = NativeMethods.imgproc_Subdiv2D_new1();
             if (ptr == IntPtr.Zero)
                 throw new OpenCvSharpException();
         }
@@ -52,7 +52,7 @@ namespace OpenCvSharp
 #endif
         public Subdiv2D(Rect rect)
         {
-            ptr = NativeMethods.imgproc_Subdiv2D_new(rect);
+            ptr = NativeMethods.imgproc_Subdiv2D_new2(rect);
             if (ptr == IntPtr.Zero)
                 throw new OpenCvSharpException();
         }
@@ -160,7 +160,7 @@ namespace OpenCvSharp
         {
             if(disposed)
                 throw new ObjectDisposedException("Subdiv2D", "");
-            return NativeMethods.imgproc_Subdiv2D_insert(ptr, pt);
+            return NativeMethods.imgproc_Subdiv2D_insert1(ptr, pt);
         }
         /// <summary>
         /// 
@@ -172,7 +172,7 @@ namespace OpenCvSharp
                 throw new ObjectDisposedException("Subdiv2D", "");
             if(ptvec == null)
                 throw new ArgumentNullException(nameof(ptvec));
-            NativeMethods.imgproc_Subdiv2D_insert(ptr, ptvec, ptvec.Length);
+            NativeMethods.imgproc_Subdiv2D_insert2(ptr, ptvec, ptvec.Length);
         }
         /// <summary>
         /// 
@@ -273,7 +273,7 @@ namespace OpenCvSharp
             IntPtr facetListPtr, facetCentersPtr;
             if (idx == null)
             {
-                NativeMethods.imgproc_Subdiv2D_getVoronoiFacetList(ptr, IntPtr.Zero, 0, out facetListPtr, out facetCentersPtr);
+                NativeMethods.imgproc_Subdiv2D_getVoronoiFacetList2(ptr, IntPtr.Zero, 0, out facetListPtr, out facetCentersPtr);
             }
             else
             {

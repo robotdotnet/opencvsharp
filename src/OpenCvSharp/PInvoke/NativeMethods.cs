@@ -1,6 +1,9 @@
-﻿using System;
+using OpenCvSharp.PInvoke.NativeLibraryUtilties;
+using OpenCvSharp.PInvoke.NativeLibraryUtilties;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Runtime.InteropServices;
 using System.Security;
 using System.Security.Permissions;
@@ -15,7 +18,7 @@ namespace OpenCvSharp
     /// P/Invoke methods of OpenCV 2.x C++ interface
     /// </summary>
     [SuppressUnmanagedCodeSecurity]
-    public static partial class NativeMethods
+    public partial class NativeMethods
     {
         /// <summary>
         /// Is tried P/Invoke once
@@ -42,14 +45,129 @@ namespace OpenCvSharp
 
         public const string DllFfmpegX86 = "opencv_ffmpeg" + Version;
         public const string DllFfmpegX64 = DllFfmpegX86 + "_64";
-        
+
+        private static readonly bool s_libraryLoaded;
+        // ReSharper disable PrivateFieldCanBeConvertedToLocalVariable
+        internal static NativeLibraryLoader NativeLoader { get; }
+        private static readonly string s_libraryLocation;
+        private static readonly bool s_useCommandLineFile;
+        // ReSharper restore PrivateFieldCanBeConvertedToLocalVariable
+        private static readonly bool s_runFinalizer;
+
+        // private constructor. Only used for our unload finalizer
+        private NativeMethods() { }
+        private void Ping() { } // Used to force compilation
+        // static variable used only for interop purposes
+        private static readonly NativeMethods finalizeInterop = new NativeMethods();
+        ~NativeMethods()
+        {
+            // If we did not successfully get constructed, we don't need to destruct
+            if (!s_runFinalizer) return;
+            //Sets logger to null so no logger gets called back.
+
+            NativeLoader.LibraryLoader.UnloadLibrary();
+
+            try
+            {
+                //Don't delete file if we are using a specified file.
+                if (!s_useCommandLineFile && File.Exists(s_libraryLocation))
+                {
+                    File.Delete(s_libraryLocation);
+                }
+            }
+            catch
+            {
+                //Any errors just ignore.
+            }
+        }
+
         /// <summary>
         /// Static constructor
         /// </summary>
         [SecurityPermission(SecurityAction.Demand, Flags = SecurityPermissionFlag.UnmanagedCode)]
         static NativeMethods()
         {
-            LoadLibraries(WindowsLibraryLoader.Instance.AdditionalPaths);
+            Console.WriteLine("Using Native Thinggy");
+            if (!s_libraryLoaded)
+            {
+                try
+                {
+                    //finalizeInterop.Ping();
+                    string[] commandArgs = Environment.GetCommandLineArgs();
+                    foreach (var commandArg in commandArgs)
+                    {
+                        //search for a line with the prefix "-opencv:"
+                        if (commandArg.ToLower().Contains("-opencv:"))
+                        {
+                            //Split line to get the library.
+                            int splitLoc = commandArg.IndexOf(':');
+                            string file = commandArg.Substring(splitLoc + 1);
+
+                            //If the file exists, just return it so dlopen can load it.
+                            if (File.Exists(file))
+                            {
+                                s_libraryLocation = file;
+                                s_useCommandLineFile = true;
+                            }
+                        }
+                    }
+
+                    const string resourceRoot = "CameraServer.Native.Libraries.";
+
+
+                    if (File.Exists("/usr/local/frc/bin/frcRunRobot.sh"))
+                    {
+                        Console.WriteLine("On RoboRIO");
+                        NativeLoader = new NativeLibraryLoader();
+                        // RoboRIO
+                        if (s_useCommandLineFile)
+                        {
+                            NativeLoader.LoadNativeLibrary<NativeMethods>(new RoboRioLibraryLoader(), s_libraryLocation, true);
+                        }
+                        else
+                        {
+                            NativeLoader.LoadNativeLibrary<NativeMethods>(new RoboRioLibraryLoader(), "/usr/local/frc/lib/libOpenCvSharpExtern.so", true);
+                            s_libraryLocation = NativeLoader.LibraryLocation;
+                        }
+                    }
+                    else
+                    {
+                        NativeLoader = new NativeLibraryLoader();
+                        NativeLoader.AddLibraryLocation(OsType.Windows32,
+                            resourceRoot + "x86.cscore.dll");
+                        NativeLoader.AddLibraryLocation(OsType.Windows64,
+                            resourceRoot + "amd64.cscore.dll");
+                        NativeLoader.AddLibraryLocation(OsType.Linux32,
+                            resourceRoot + "x86.libcscore.so");
+                        NativeLoader.AddLibraryLocation(OsType.Linux64,
+                            resourceRoot + "amd64.libcscore.so");
+                        NativeLoader.AddLibraryLocation(OsType.MacOs32,
+                            resourceRoot + "x86.libcscore.dylib");
+                        NativeLoader.AddLibraryLocation(OsType.MacOs64,
+                            resourceRoot + "amd64.libcscore.dylib");
+
+                        if (s_useCommandLineFile)
+                        {
+                            NativeLoader.LoadNativeLibrary<NativeMethods>(new RoboRioLibraryLoader(), s_libraryLocation, true);
+                        }
+                        else
+                        {
+                            NativeLoader.LoadNativeLibrary<NativeMethods>();
+                            s_libraryLocation = NativeLoader.LibraryLocation;
+                        }
+                    }
+
+                    NativeDelegateInitializer.SetupNativeDelegates<NativeMethods>(NativeLoader);
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                    Console.WriteLine(e.StackTrace);
+                    Environment.Exit(1);
+                }
+                s_runFinalizer = true;
+                s_libraryLoaded = true;
+            }
 
             // call cv to enable redirecting 
             TryPInvoke();
@@ -70,16 +188,16 @@ namespace OpenCvSharp
             
             foreach (string dll in RuntimeDllNames)
             {
-                WindowsLibraryLoader.Instance.LoadLibrary(dll, runtimePaths);
+                //WindowsLibraryLoader.Instance.LoadLibrary(dll, runtimePaths);
             }
             foreach (string dll in OpenCVDllNames)
             {
-                WindowsLibraryLoader.Instance.LoadLibrary(dll + Version, ap);
+                //WindowsLibraryLoader.Instance.LoadLibrary(dll + Version, ap);
             }
 
             // calib3d, contrib, core, features2d, flann, highgui, imgproc, legacy,
             // ml, nonfree, objdetect, photo, superres, video, videostab
-            WindowsLibraryLoader.Instance.LoadLibrary(DllExtern, ap);
+            //WindowsLibraryLoader.Instance.LoadLibrary(DllExtern, ap);
 
             // Redirection of error occurred in native library 
             IntPtr zero = IntPtr.Zero;

@@ -1757,7 +1757,7 @@ namespace OpenCvSharp
             using (var flVec = new VectorOfPoint())
             {
                 int slLength = (searchLocations != null) ? searchLocations.Length : 0;
-                NativeMethods.objdetect_HOGDescriptor_detect(ptr, img.CvPtr, flVec.CvPtr, 
+                NativeMethods.objdetect_HOGDescriptor_detect1(ptr, img.CvPtr, flVec.CvPtr, 
                     hitThreshold, winStride0, padding0, searchLocations, slLength);
                 return flVec.ToArray();
             }
@@ -1790,7 +1790,7 @@ namespace OpenCvSharp
             using (var weightsVec = new VectorOfDouble())
             {
                 int slLength = (searchLocations != null) ? searchLocations.Length : 0;
-                NativeMethods.objdetect_HOGDescriptor_detect(ptr, img.CvPtr, flVec.CvPtr, weightsVec.CvPtr,
+                NativeMethods.objdetect_HOGDescriptor_detect2(ptr, img.CvPtr, flVec.CvPtr, weightsVec.CvPtr,
                     hitThreshold, winStride0, padding0, searchLocations, slLength);
                 weights = weightsVec.ToArray();
                 return flVec.ToArray();
@@ -1822,7 +1822,7 @@ namespace OpenCvSharp
             Size padding0 = padding.GetValueOrDefault(new Size());
             using (var flVec = new VectorOfRect())
             {
-                NativeMethods.objdetect_HOGDescriptor_detectMultiScale(ptr, img.CvPtr, flVec.CvPtr, 
+                NativeMethods.objdetect_HOGDescriptor_detectMultiScale1(ptr, img.CvPtr, flVec.CvPtr, 
                     hitThreshold, winStride0, padding0, scale, groupThreshold);
                 return flVec.ToArray();
             }          
@@ -1854,7 +1854,7 @@ namespace OpenCvSharp
             using (var flVec = new VectorOfRect())
             using (var foundWeightsVec = new VectorOfDouble())
             {
-                NativeMethods.objdetect_HOGDescriptor_detectMultiScale(ptr, img.CvPtr, flVec.CvPtr, foundWeightsVec.CvPtr,
+                NativeMethods.objdetect_HOGDescriptor_detectMultiScale2(ptr, img.CvPtr, flVec.CvPtr, foundWeightsVec.CvPtr,
                     hitThreshold, winStride0, padding0, scale, groupThreshold);
                 foundWeights = foundWeightsVec.ToArray();
                 return flVec.ToArray();

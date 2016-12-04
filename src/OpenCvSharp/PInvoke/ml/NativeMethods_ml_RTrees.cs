@@ -1,37 +1,48 @@
-﻿using System;
+using OpenCvSharp.PInvoke.NativeLibraryUtilties;
+using System;
 using System.Runtime.InteropServices;
 
 #pragma warning disable 1591
 
 namespace OpenCvSharp
 {
-    static partial class NativeMethods
+    partial class NativeMethods
     {
-        [DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl)]
-        public static extern int ml_RTrees_getCalculateVarImportance(IntPtr obj);
-        [DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl)]
-        public static extern void ml_RTrees_setCalculateVarImportance(IntPtr obj, int val);
+        [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+        public delegate int ml_RTrees_getCalculateVarImportanceDelegate(IntPtr obj);
+        [NativeDelegate("ml_RTrees_getCalculateVarImportance")] public static ml_RTrees_getCalculateVarImportanceDelegate ml_RTrees_getCalculateVarImportance;
+        [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+        public delegate void ml_RTrees_setCalculateVarImportanceDelegate(IntPtr obj, int val);
+        [NativeDelegate("ml_RTrees_setCalculateVarImportance")] public static ml_RTrees_setCalculateVarImportanceDelegate ml_RTrees_setCalculateVarImportance;
         
-        [DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl)]
-        public static extern int ml_RTrees_getActiveVarCount(IntPtr obj);
-        [DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl)]
-        public static extern void ml_RTrees_setActiveVarCount(IntPtr obj, int val);
+        [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+        public delegate int ml_RTrees_getActiveVarCountDelegate(IntPtr obj);
+        [NativeDelegate("ml_RTrees_getActiveVarCount")] public static ml_RTrees_getActiveVarCountDelegate ml_RTrees_getActiveVarCount;
+        [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+        public delegate void ml_RTrees_setActiveVarCountDelegate(IntPtr obj, int val);
+        [NativeDelegate("ml_RTrees_setActiveVarCount")] public static ml_RTrees_setActiveVarCountDelegate ml_RTrees_setActiveVarCount;
         
-        [DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl)]
-        public static extern TermCriteria ml_RTrees_getTermCriteria(IntPtr obj);
-        [DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl)]
-        public static extern void ml_RTrees_setTermCriteria(IntPtr obj, TermCriteria val);
+        [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+        public delegate TermCriteria ml_RTrees_getTermCriteriaDelegate(IntPtr obj);
+        [NativeDelegate("ml_RTrees_getTermCriteria")] public static ml_RTrees_getTermCriteriaDelegate ml_RTrees_getTermCriteria;
+        [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+        public delegate void ml_RTrees_setTermCriteriaDelegate(IntPtr obj, TermCriteria val);
+        [NativeDelegate("ml_RTrees_setTermCriteria")] public static ml_RTrees_setTermCriteriaDelegate ml_RTrees_setTermCriteria;
         
-        [DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl)]
-        public static extern IntPtr ml_RTrees_getVarImportance(IntPtr obj);
+        [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+        public delegate IntPtr ml_RTrees_getVarImportanceDelegate(IntPtr obj);
+        [NativeDelegate("ml_RTrees_getVarImportance")] public static ml_RTrees_getVarImportanceDelegate ml_RTrees_getVarImportance;
         
-        [DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl)]
-        public static extern IntPtr ml_RTrees_create();
+        [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+        public delegate IntPtr ml_RTrees_createDelegate();
+        [NativeDelegate("ml_RTrees_create")] public static ml_RTrees_createDelegate ml_RTrees_create;
         
-        [DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl)]
-        public static extern void ml_Ptr_RTrees_delete(IntPtr obj);
+        [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+        public delegate void ml_Ptr_RTrees_deleteDelegate(IntPtr obj);
+        [NativeDelegate("ml_Ptr_RTrees_delete")] public static ReleaseFunc ml_Ptr_RTrees_delete;
         
-        [DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl)]
-        public static extern IntPtr ml_Ptr_RTrees_get(IntPtr obj);
+        [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+        public delegate IntPtr ml_Ptr_RTrees_getDelegate(IntPtr obj);
+        [NativeDelegate("ml_Ptr_RTrees_get")] public static ObjFunc ml_Ptr_RTrees_get;
     }
 }

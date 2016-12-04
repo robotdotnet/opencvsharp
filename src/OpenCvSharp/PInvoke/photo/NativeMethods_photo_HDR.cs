@@ -1,4 +1,5 @@
-﻿using System;
+using OpenCvSharp.PInvoke.NativeLibraryUtilties;
+using System;
 using System.Runtime.InteropServices;
 
 #pragma warning disable 1591
@@ -6,28 +7,35 @@ using System.Runtime.InteropServices;
 
 namespace OpenCvSharp
 {
-    static partial class NativeMethods
+    partial class NativeMethods
     {
-        [DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl)]
-        public static extern IntPtr photo_createCalibrateDebevec(int samples, float lambda, int random);
+        [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+        public delegate IntPtr photo_createCalibrateDebevecDelegate(int samples, float lambda, int random);
+        [NativeDelegate("photo_createCalibrateDebevec")] public static photo_createCalibrateDebevecDelegate photo_createCalibrateDebevec;
 
-        [DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl)]
-        public static extern IntPtr photo_createCalibrateRobertson(int maxIter, float threshold);
+        [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+        public delegate IntPtr photo_createCalibrateRobertsonDelegate(int maxIter, float threshold);
+        [NativeDelegate("photo_createCalibrateRobertson")] public static photo_createCalibrateRobertsonDelegate photo_createCalibrateRobertson;
 
-        [DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl)]
-        public static extern void photo_Ptr_CalibrateDebevec_delete(IntPtr obj);
+        [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+        public delegate void photo_Ptr_CalibrateDebevec_deleteDelegate(IntPtr obj);
+        [NativeDelegate("photo_Ptr_CalibrateDebevec_delete")] public static ReleaseFunc photo_Ptr_CalibrateDebevec_delete;
 
-        [DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl)]
-        public static extern void photo_Ptr_CalibrateRobertson_delete(IntPtr obj);
+        [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+        public delegate void photo_Ptr_CalibrateRobertson_deleteDelegate(IntPtr obj);
+        [NativeDelegate("photo_Ptr_CalibrateRobertson_delete")] public static photo_Ptr_CalibrateRobertson_deleteDelegate photo_Ptr_CalibrateRobertson_delete;
 
-        [DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl)]
-        public static extern IntPtr photo_Ptr_CalibrateDebevec_get(IntPtr obj);
+        [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+        public delegate IntPtr photo_Ptr_CalibrateDebevec_getDelegate(IntPtr obj);
+        [NativeDelegate("photo_Ptr_CalibrateDebevec_get")] public static ObjFunc photo_Ptr_CalibrateDebevec_get;
 
-        [DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl)]
-        public static extern IntPtr photo_Ptr_CalibrateRobertson_get(IntPtr obj);
+        [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+        public delegate IntPtr photo_Ptr_CalibrateRobertson_getDelegate(IntPtr obj);
+        [NativeDelegate("photo_Ptr_CalibrateRobertson_get")] public static photo_Ptr_CalibrateRobertson_getDelegate photo_Ptr_CalibrateRobertson_get;
 
-        [DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl)]
-        public static extern void photo_CalibrateCRF_process(
+        [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+        public delegate void photo_CalibrateCRF_processDelegate(
             IntPtr obj, IntPtr[] srcImgs, int srcImgsLength, IntPtr dst, [In, MarshalAs(UnmanagedType.LPArray)] float[] times);
+        [NativeDelegate("photo_CalibrateCRF_process")] public static photo_CalibrateCRF_processDelegate photo_CalibrateCRF_process;
     }
 }

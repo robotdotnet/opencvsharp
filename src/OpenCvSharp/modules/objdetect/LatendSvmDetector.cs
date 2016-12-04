@@ -6,6 +6,7 @@ using OpenCvSharp.Util;
 
 namespace OpenCvSharp
 {
+    /*
     /// <summary>
     /// Find rectangular regions in the given image that are likely
     /// to contain objects and corresponding confidence levels
@@ -215,5 +216,6 @@ namespace OpenCvSharp
 
         #endregion
     }
+    */
 
 }
