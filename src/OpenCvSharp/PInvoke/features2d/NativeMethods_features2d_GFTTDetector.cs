@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 
 namespace OpenCvSharp
 {
-    static partial class NativeMethods
+    partial class NativeMethods
     {
         // ReSharper disable InconsistentNaming
 

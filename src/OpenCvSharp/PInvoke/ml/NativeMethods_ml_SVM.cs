@@ -7,7 +7,7 @@ using OpenCvSharp.ML;
 
 namespace OpenCvSharp
 {
-    static partial class NativeMethods
+    partial class NativeMethods
     {
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate int ml_SVM_getTypeDelegate(IntPtr obj);

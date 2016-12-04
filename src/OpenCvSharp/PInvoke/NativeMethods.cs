@@ -95,8 +95,8 @@ namespace OpenCvSharp
                     string[] commandArgs = Environment.GetCommandLineArgs();
                     foreach (var commandArg in commandArgs)
                     {
-                        //search for a line with the prefix "-cameraserver:"
-                        if (commandArg.ToLower().Contains("-cameraserver:"))
+                        //search for a line with the prefix "-opencv:"
+                        if (commandArg.ToLower().Contains("-opencv:"))
                         {
                             //Split line to get the library.
                             int splitLoc = commandArg.IndexOf(':');

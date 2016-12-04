@@ -8,7 +8,7 @@ using OpenCvSharp.Flann;
 
 namespace OpenCvSharp
 {
-    static partial class NativeMethods
+    partial class NativeMethods
     {
         #region Index
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]

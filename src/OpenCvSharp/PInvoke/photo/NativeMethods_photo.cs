@@ -7,7 +7,7 @@ using System.Runtime.InteropServices;
 
 namespace OpenCvSharp
 {
-    static partial class NativeMethods
+    partial class NativeMethods
     {
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate void photo_inpaintDelegate(IntPtr src, IntPtr inpaintMask,

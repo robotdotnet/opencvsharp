@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 
 namespace OpenCvSharp.CPlusPlus
 {
-    static partial class NativeMethods
+    partial class NativeMethods
     {
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate int contrib_initModule_contribDelegate();

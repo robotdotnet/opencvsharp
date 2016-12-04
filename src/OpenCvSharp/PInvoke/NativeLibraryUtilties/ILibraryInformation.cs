@@ -1,4 +1,4 @@
-﻿namespace OpenCvSharp.PInvoke.NativeLibraryUtilties
+namespace OpenCvSharp.PInvoke.NativeLibraryUtilties
 {
     /// <summary>
     /// Interface for getting information about a loaded native library.

@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 
 namespace OpenCvSharp
 {
-    static partial class NativeMethods
+    partial class NativeMethods
     {
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate IntPtr imgproc_createCLAHEDelegate(double clipLimit, Size tileGridSize);

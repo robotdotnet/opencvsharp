@@ -9,7 +9,7 @@ namespace OpenCvSharp
 {
     // ReSharper disable InconsistentNaming
 
-    static partial class NativeMethods
+    partial class NativeMethods
     {
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate void face_FaceRecognizer_deleteDelegate(IntPtr obj);

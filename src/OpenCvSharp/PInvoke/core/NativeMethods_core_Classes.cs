@@ -7,7 +7,7 @@ using System.Text;
 
 namespace OpenCvSharp
 {
-    static partial class NativeMethods
+    partial class NativeMethods
     {
         #region Algorithm
 

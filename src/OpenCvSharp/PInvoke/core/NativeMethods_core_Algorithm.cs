@@ -7,7 +7,7 @@ using System.Text;
 
 namespace OpenCvSharp
 {
-    static partial class NativeMethods
+    partial class NativeMethods
     {
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate void core_Algorithm_writeDelegate(IntPtr obj, IntPtr fs);

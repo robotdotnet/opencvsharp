@@ -9,7 +9,7 @@ namespace OpenCvSharp
 {
     // ReSharper disable InconsistentNaming
 
-    static partial class NativeMethods
+    partial class NativeMethods
     {
         #region StereoMatcher
 

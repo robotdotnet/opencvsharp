@@ -8,7 +8,7 @@ namespace OpenCvSharp
 {
     // TODO
 
-    static partial class NativeMethods
+    partial class NativeMethods
     {
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate void superres_FrameSource_nextFrameDelegate(IntPtr obj, IntPtr frame);

@@ -1,4 +1,4 @@
-﻿using OpenCvSharp.PInvoke.NativeLibraryUtilties;
+using OpenCvSharp.PInvoke.NativeLibraryUtilties;
 using System;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -7,7 +7,7 @@ using System.Text;
 
 namespace OpenCvSharp
 {
-    static partial class NativeMethods
+    partial class NativeMethods
     {
         #region Miscellaneous
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]

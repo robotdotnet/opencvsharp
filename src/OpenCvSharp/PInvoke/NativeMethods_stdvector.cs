@@ -7,7 +7,7 @@ using OpenCvSharp.ML;
 
 namespace OpenCvSharp
 {
-    static partial class NativeMethods
+    partial class NativeMethods
     {
         #region uchar
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]

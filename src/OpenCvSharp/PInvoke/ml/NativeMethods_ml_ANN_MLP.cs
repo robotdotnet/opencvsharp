@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 
 namespace OpenCvSharp
 {
-    static partial class NativeMethods
+    partial class NativeMethods
     {
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate void ml_ANN_MLP_setTrainMethodDelegate(IntPtr obj, int method, double param1, double param2);
