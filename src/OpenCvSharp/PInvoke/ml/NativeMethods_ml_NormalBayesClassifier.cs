@@ -1,4 +1,5 @@
-﻿using System;
+using OpenCvSharp.PInvoke.NativeLibraryUtilties;
+using System;
 using System.Runtime.InteropServices;
 
 #pragma warning disable 1591
@@ -7,18 +8,22 @@ namespace OpenCvSharp
 {
     static partial class NativeMethods
     {
-        [DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl)]
-        public static extern float ml_NormalBayesClassifier_predictProb(
+        [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+        public delegate float ml_NormalBayesClassifier_predictProbDelegate(
             IntPtr obj, IntPtr inputs,
             IntPtr samples, IntPtr outputProbs, int flags);
+        [NativeDelegate("ml_NormalBayesClassifier_predictProb")] public static ml_NormalBayesClassifier_predictProbDelegate ml_NormalBayesClassifier_predictProb;
 
-        [DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl)]
-        public static extern IntPtr ml_NormalBayesClassifier_create();
+        [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+        public delegate IntPtr ml_NormalBayesClassifier_createDelegate();
+        [NativeDelegate("ml_NormalBayesClassifier_create")] public static ml_NormalBayesClassifier_createDelegate ml_NormalBayesClassifier_create;
         
-        [DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl)]
-        public static extern void ml_Ptr_NormalBayesClassifier_delete(IntPtr obj);
+        [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+        public delegate void ml_Ptr_NormalBayesClassifier_deleteDelegate(IntPtr obj);
+        [NativeDelegate("ml_Ptr_NormalBayesClassifier_delete")] public static ml_Ptr_NormalBayesClassifier_deleteDelegate ml_Ptr_NormalBayesClassifier_delete;
         
-        [DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl)]
-        public static extern IntPtr ml_Ptr_NormalBayesClassifier_get(IntPtr obj);
+        [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+        public delegate IntPtr ml_Ptr_NormalBayesClassifier_getDelegate(IntPtr obj);
+        [NativeDelegate("ml_Ptr_NormalBayesClassifier_get")] public static ml_Ptr_NormalBayesClassifier_getDelegate ml_Ptr_NormalBayesClassifier_get;
     }
 }

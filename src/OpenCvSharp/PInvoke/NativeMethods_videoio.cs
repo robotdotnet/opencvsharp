@@ -1,4 +1,5 @@
-﻿using System;
+using OpenCvSharp.PInvoke.NativeLibraryUtilties;
+using System;
 using System.Runtime.InteropServices;
 
 #pragma warning disable 1591
@@ -9,89 +10,115 @@ namespace OpenCvSharp
     {
         // VideoCapture
 
-        [DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl)]
-        public static extern IntPtr videoio_VideoCapture_new1();
+        [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+        public delegate IntPtr videoio_VideoCapture_new1Delegate();
+        [NativeDelegate("videoio_VideoCapture_new1")] public static videoio_VideoCapture_new1Delegate videoio_VideoCapture_new1;
 
-        [DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl)]
-        public static extern IntPtr videoio_VideoCapture_new2([MarshalAs(UnmanagedType.LPStr)] string filename);
+        [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+        public delegate IntPtr videoio_VideoCapture_new2Delegate([MarshalAs(UnmanagedType.LPStr)] string filename);
+        [NativeDelegate("videoio_VideoCapture_new2")] public static videoio_VideoCapture_new2Delegate videoio_VideoCapture_new2;
 
-        [DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl)]
-        public static extern IntPtr videoio_VideoCapture_new3(int device);
+        [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+        public delegate IntPtr videoio_VideoCapture_new3Delegate(int device);
+        [NativeDelegate("videoio_VideoCapture_new3")] public static videoio_VideoCapture_new3Delegate videoio_VideoCapture_new3;
 
-        [DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl)]
-        public static extern void videoio_VideoCapture_delete(IntPtr obj);
+        [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+        public delegate void videoio_VideoCapture_deleteDelegate(IntPtr obj);
+        [NativeDelegate("videoio_VideoCapture_delete")] public static videoio_VideoCapture_deleteDelegate videoio_VideoCapture_delete;
 
-        [DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl)]
-        public static extern int videoio_VideoCapture_open1(IntPtr obj, [MarshalAs(UnmanagedType.LPStr)] string filename);
+        [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+        public delegate int videoio_VideoCapture_open1Delegate(IntPtr obj, [MarshalAs(UnmanagedType.LPStr)] string filename);
+        [NativeDelegate("videoio_VideoCapture_open1")] public static videoio_VideoCapture_open1Delegate videoio_VideoCapture_open1;
 
-        [DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl)]
-        public static extern int videoio_VideoCapture_open2(IntPtr obj, int device);
+        [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+        public delegate int videoio_VideoCapture_open2Delegate(IntPtr obj, int device);
+        [NativeDelegate("videoio_VideoCapture_open2")] public static videoio_VideoCapture_open2Delegate videoio_VideoCapture_open2;
 
-        [DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl)]
-        public static extern int videoio_VideoCapture_isOpened(IntPtr obj);
+        [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+        public delegate int videoio_VideoCapture_isOpenedDelegate(IntPtr obj);
+        [NativeDelegate("videoio_VideoCapture_isOpened")] public static videoio_VideoCapture_isOpenedDelegate videoio_VideoCapture_isOpened;
 
-        [DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl)]
-        public static extern void videoio_VideoCapture_release(IntPtr obj);
+        [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+        public delegate void videoio_VideoCapture_releaseDelegate(IntPtr obj);
+        [NativeDelegate("videoio_VideoCapture_release")] public static videoio_VideoCapture_releaseDelegate videoio_VideoCapture_release;
         
-        [DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl)]
-        public static extern int videoio_VideoCapture_grab(IntPtr obj);
+        [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+        public delegate int videoio_VideoCapture_grabDelegate(IntPtr obj);
+        [NativeDelegate("videoio_VideoCapture_grab")] public static videoio_VideoCapture_grabDelegate videoio_VideoCapture_grab;
 
-        [DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl)]
-        public static extern int videoio_VideoCapture_retrieve(IntPtr obj, IntPtr image, int flag);
+        [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+        public delegate int videoio_VideoCapture_retrieveDelegate(IntPtr obj, IntPtr image, int flag);
+        [NativeDelegate("videoio_VideoCapture_retrieve")] public static videoio_VideoCapture_retrieveDelegate videoio_VideoCapture_retrieve;
         
-        [DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl)]
-        public static extern void videoio_VideoCapture_operatorRightShift_Mat(IntPtr obj, IntPtr image);
+        [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+        public delegate void videoio_VideoCapture_operatorRightShift_MatDelegate(IntPtr obj, IntPtr image);
+        [NativeDelegate("videoio_VideoCapture_operatorRightShift_Mat")] public static videoio_VideoCapture_operatorRightShift_MatDelegate videoio_VideoCapture_operatorRightShift_Mat;
 
-        [DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl)]
-        public static extern void videoio_VideoCapture_operatorRightShift_UMat(IntPtr obj, IntPtr image);
+        [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+        public delegate void videoio_VideoCapture_operatorRightShift_UMatDelegate(IntPtr obj, IntPtr image);
+        [NativeDelegate("videoio_VideoCapture_operatorRightShift_UMat")] public static videoio_VideoCapture_operatorRightShift_UMatDelegate videoio_VideoCapture_operatorRightShift_UMat;
 
-        [DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl)]
-        public static extern int videoio_VideoCapture_read(IntPtr obj, IntPtr image);
+        [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+        public delegate int videoio_VideoCapture_readDelegate(IntPtr obj, IntPtr image);
+        [NativeDelegate("videoio_VideoCapture_read")] public static videoio_VideoCapture_readDelegate videoio_VideoCapture_read;
 
-        [DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl)]
-        public static extern int videoio_VideoCapture_set(IntPtr obj, int propId, double value);
+        [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+        public delegate int videoio_VideoCapture_setDelegate(IntPtr obj, int propId, double value);
+        [NativeDelegate("videoio_VideoCapture_set")] public static videoio_VideoCapture_setDelegate videoio_VideoCapture_set;
 
-        [DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl)]
-        public static extern double videoio_VideoCapture_get(IntPtr obj, int propId);
+        [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+        public delegate double videoio_VideoCapture_getDelegate(IntPtr obj, int propId);
+        [NativeDelegate("videoio_VideoCapture_get")] public static videoio_VideoCapture_getDelegate videoio_VideoCapture_get;
 
 
         // VideoWriter
 
-        [DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl)]
-        public static extern IntPtr videoio_VideoWriter_new1();
+        [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+        public delegate IntPtr videoio_VideoWriter_new1Delegate();
+        [NativeDelegate("videoio_VideoWriter_new1")] public static videoio_VideoWriter_new1Delegate videoio_VideoWriter_new1;
 
-        [DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl)]
-        public static extern IntPtr videoio_VideoWriter_new2(
+        [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+        public delegate IntPtr videoio_VideoWriter_new2Delegate(
             [MarshalAs(UnmanagedType.LPStr)] string filename, int fourcc, double fps,
             Size frameSize, int isColor);
+        [NativeDelegate("videoio_VideoWriter_new2")] public static videoio_VideoWriter_new2Delegate videoio_VideoWriter_new2;
 
-        [DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl)]
-        public static extern void videoio_VideoWriter_delete(IntPtr obj);
+        [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+        public delegate void videoio_VideoWriter_deleteDelegate(IntPtr obj);
+        [NativeDelegate("videoio_VideoWriter_delete")] public static videoio_VideoWriter_deleteDelegate videoio_VideoWriter_delete;
 
-        [DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl)]
-        public static extern int videoio_VideoWriter_open(
+        [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+        public delegate int videoio_VideoWriter_openDelegate(
             IntPtr obj, [MarshalAs(UnmanagedType.LPStr)] string filename,
             int fourcc, double fps, Size frameSize, int isColor);
+        [NativeDelegate("videoio_VideoWriter_open")] public static videoio_VideoWriter_openDelegate videoio_VideoWriter_open;
 
-        [DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl)]
-        public static extern int videoio_VideoWriter_isOpened(IntPtr obj);
+        [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+        public delegate int videoio_VideoWriter_isOpenedDelegate(IntPtr obj);
+        [NativeDelegate("videoio_VideoWriter_isOpened")] public static videoio_VideoWriter_isOpenedDelegate videoio_VideoWriter_isOpened;
 
-        [DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl)]
-        public static extern void videoio_VideoWriter_release(IntPtr obj);
+        [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+        public delegate void videoio_VideoWriter_releaseDelegate(IntPtr obj);
+        [NativeDelegate("videoio_VideoWriter_release")] public static videoio_VideoWriter_releaseDelegate videoio_VideoWriter_release;
 
-        [DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl)]
-        public static extern void videoio_VideoWriter_OperatorLeftShift(IntPtr obj, IntPtr image);
+        [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+        public delegate void videoio_VideoWriter_OperatorLeftShiftDelegate(IntPtr obj, IntPtr image);
+        [NativeDelegate("videoio_VideoWriter_OperatorLeftShift")] public static videoio_VideoWriter_OperatorLeftShiftDelegate videoio_VideoWriter_OperatorLeftShift;
 
-        [DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl)]
-        public static extern void videoio_VideoWriter_write(IntPtr obj, IntPtr image);
+        [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+        public delegate void videoio_VideoWriter_writeDelegate(IntPtr obj, IntPtr image);
+        [NativeDelegate("videoio_VideoWriter_write")] public static videoio_VideoWriter_writeDelegate videoio_VideoWriter_write;
 
-        [DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl)]
-        public static extern int videoio_VideoWriter_set(IntPtr obj, int propId, double value);
+        [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+        public delegate int videoio_VideoWriter_setDelegate(IntPtr obj, int propId, double value);
+        [NativeDelegate("videoio_VideoWriter_set")] public static videoio_VideoWriter_setDelegate videoio_VideoWriter_set;
 
-        [DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl)]
-        public static extern double videoio_VideoWriter_get(IntPtr obj, int propId);
+        [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+        public delegate double videoio_VideoWriter_getDelegate(IntPtr obj, int propId);
+        [NativeDelegate("videoio_VideoWriter_get")] public static videoio_VideoWriter_getDelegate videoio_VideoWriter_get;
 
-        [DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl)]
-        public static extern int videoio_VideoWriter_fourcc(byte c1, byte c2, byte c3, byte c4);
+        [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+        public delegate int videoio_VideoWriter_fourccDelegate(byte c1, byte c2, byte c3, byte c4);
+        [NativeDelegate("videoio_VideoWriter_fourcc")] public static videoio_VideoWriter_fourccDelegate videoio_VideoWriter_fourcc;
     }
 }

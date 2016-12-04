@@ -366,7 +366,6 @@
     <Compile Include="PInvoke\NativeMethods_stitching.cs" />
     <Compile Include="Util\PInvokeHelper.cs" />
     <Compile Include="Util\ArrayAddress.cs" />
-    <Compile Include="Util\DynamicInvoker.cs" />
     <Compile Include="Util\Platform.cs" />
     <Compile Include="Util\ScopedGCHandle.cs" />
     <Compile Include="Util\StringArrayAddress.cs" />

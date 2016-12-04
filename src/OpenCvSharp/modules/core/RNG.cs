@@ -21,7 +21,7 @@ namespace OpenCvSharp
         /// </summary>
         public RNG()
         {
-            State = NativeMethods.core_RNG_new();
+            State = NativeMethods.core_RNG_new1();
         }
         /// <summary>
         /// 
@@ -29,7 +29,7 @@ namespace OpenCvSharp
         /// <param name="state"></param>
         public RNG(ulong state)
         {
-            State = NativeMethods.core_RNG_new(state);
+            State = NativeMethods.core_RNG_new2(state);
         }
         #endregion
 
@@ -141,7 +141,7 @@ namespace OpenCvSharp
         /// <returns></returns>
         public uint Run(uint n)
         {
-            return NativeMethods.core_RNG_operatorThis(State, n);
+            return NativeMethods.core_RNG_operatorThis1(State, n);
         }
         /// <summary>
         /// 
@@ -149,7 +149,7 @@ namespace OpenCvSharp
         /// <returns></returns>
         public uint Run()
         {
-            return NativeMethods.core_RNG_operatorThis(State);
+            return NativeMethods.core_RNG_operatorThis2(State);
         }
 
         /// <summary>
@@ -160,7 +160,7 @@ namespace OpenCvSharp
         /// <returns></returns>
         public int Uniform(int a, int b)
         {
-            return NativeMethods.core_RNG_uniform(State, a, b);
+            return NativeMethods.core_RNG_uniform_int(State, a, b);
         }
         /// <summary>
         /// returns uniformly distributed floating-point random number from [a,b) range
@@ -170,7 +170,7 @@ namespace OpenCvSharp
         /// <returns></returns>
         public float Uniform(float a, float b)
         {
-            return NativeMethods.core_RNG_uniform(State, a, b);
+            return NativeMethods.core_RNG_uniform_float(State, a, b);
         }
         /// <summary>
         /// returns uniformly distributed double-precision floating-point random number from [a,b) range
@@ -180,7 +180,7 @@ namespace OpenCvSharp
         /// <returns></returns>
         public double Uniform(double a, double b)
         {
-            return NativeMethods.core_RNG_uniform(State, a, b);
+            return NativeMethods.core_RNG_uniform_double(State, a, b);
         }
 
         /// <summary>

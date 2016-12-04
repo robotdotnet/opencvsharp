@@ -183,7 +183,7 @@ namespace OpenCvSharp
             if (vec == null)
                 throw new ArgumentNullException(nameof(vec));
             vec.ThrowIfDisposed();
-            IntPtr ret = NativeMethods.core_PCA_project(ptr, vec.CvPtr);
+            IntPtr ret = NativeMethods.core_PCA_project1(ptr, vec.CvPtr);
             return new Mat(ret);
         }
         /// <summary>
@@ -201,7 +201,7 @@ namespace OpenCvSharp
                 throw new ArgumentNullException(nameof(result));
             vec.ThrowIfDisposed();
             result.ThrowIfNotReady();
-            NativeMethods.core_PCA_project(ptr, vec.CvPtr, result.CvPtr);
+            NativeMethods.core_PCA_project2(ptr, vec.CvPtr, result.CvPtr);
             result.Fix();
         }
 
@@ -217,7 +217,7 @@ namespace OpenCvSharp
             if (vec == null)
                 throw new ArgumentNullException(nameof(vec));
             vec.ThrowIfDisposed();
-            IntPtr ret = NativeMethods.core_PCA_backProject(ptr, vec.CvPtr);
+            IntPtr ret = NativeMethods.core_PCA_backProject1(ptr, vec.CvPtr);
             return new Mat(ret);
         }
         /// <summary>
@@ -235,7 +235,7 @@ namespace OpenCvSharp
                 throw new ArgumentNullException(nameof(result));
             vec.ThrowIfDisposed();
             result.ThrowIfNotReady();
-            NativeMethods.core_PCA_backProject(ptr, vec.CvPtr, result.CvPtr);
+            NativeMethods.core_PCA_backProject2(ptr, vec.CvPtr, result.CvPtr);
             result.Fix();
         }
         #endregion

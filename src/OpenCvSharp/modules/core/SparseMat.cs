@@ -469,7 +469,7 @@ namespace OpenCvSharp
                 return NativeMethods.core_SparseMat_ptr_1d(
                     ptr, i0, createMissing ? 1 : 0, ref hashVal0);
             }
-            return NativeMethods.core_SparseMat_ptr_1d(
+            return NativeMethods.core_SparseMat_ptr_1d2(
                     ptr, i0, createMissing ? 1 : 0, IntPtr.Zero);
         }
 
@@ -490,7 +490,7 @@ namespace OpenCvSharp
                 return NativeMethods.core_SparseMat_ptr_2d(
                     ptr, i0, i1, createMissing ? 1 : 0, ref hashVal0);
             }
-            return NativeMethods.core_SparseMat_ptr_2d(
+            return NativeMethods.core_SparseMat_ptr_2d2(
                     ptr, i0, i1, createMissing ? 1 : 0, IntPtr.Zero);
         }
 
@@ -512,7 +512,7 @@ namespace OpenCvSharp
                 return NativeMethods.core_SparseMat_ptr_3d(
                     ptr, i0, i1, i2, createMissing ? 1 : 0, ref hashVal0);
             }
-            return NativeMethods.core_SparseMat_ptr_3d(
+            return NativeMethods.core_SparseMat_ptr_3d2(
                     ptr, i0, i1, i2, createMissing ? 1 : 0, IntPtr.Zero);
         }
 
@@ -532,7 +532,7 @@ namespace OpenCvSharp
                 return NativeMethods.core_SparseMat_ptr_nd(
                     ptr, idx, createMissing ? 1 : 0, ref hashVal0);
             }
-            return NativeMethods.core_SparseMat_ptr_nd(
+            return NativeMethods.core_SparseMat_ptr_nd2(
                     ptr, idx, createMissing ? 1 : 0, IntPtr.Zero);
         }
 

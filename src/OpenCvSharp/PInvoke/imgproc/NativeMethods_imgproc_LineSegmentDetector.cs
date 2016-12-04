@@ -1,4 +1,5 @@
-﻿using System;
+using OpenCvSharp.PInvoke.NativeLibraryUtilties;
+using System;
 using System.Runtime.InteropServices;
 
 #pragma warning disable 1591
@@ -8,30 +9,37 @@ namespace OpenCvSharp
 {
     static partial class NativeMethods
     {
-        [DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl)]
-        public static extern void imgproc_LineSegmentDetector_detect_OutputArray(IntPtr obj, IntPtr image, IntPtr lines,
+        [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+        public delegate void imgproc_LineSegmentDetector_detect_OutputArrayDelegate(IntPtr obj, IntPtr image, IntPtr lines,
             IntPtr width, IntPtr prec, IntPtr nfa);
+        [NativeDelegate("imgproc_LineSegmentDetector_detect_OutputArray")] public static imgproc_LineSegmentDetector_detect_OutputArrayDelegate imgproc_LineSegmentDetector_detect_OutputArray;
 
-        [DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl)]
-        public static extern void imgproc_LineSegmentDetector_detect_vector(IntPtr obj, IntPtr image, IntPtr lines,
+        [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+        public delegate void imgproc_LineSegmentDetector_detect_vectorDelegate(IntPtr obj, IntPtr image, IntPtr lines,
             IntPtr width, IntPtr prec, IntPtr nfa);
+        [NativeDelegate("imgproc_LineSegmentDetector_detect_vector")] public static imgproc_LineSegmentDetector_detect_vectorDelegate imgproc_LineSegmentDetector_detect_vector;
 
-        [DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl)]
-        public static extern void imgproc_LineSegmentDetector_drawSegments(IntPtr obj, IntPtr image, IntPtr lines);
+        [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+        public delegate void imgproc_LineSegmentDetector_drawSegmentsDelegate(IntPtr obj, IntPtr image, IntPtr lines);
+        [NativeDelegate("imgproc_LineSegmentDetector_drawSegments")] public static imgproc_LineSegmentDetector_drawSegmentsDelegate imgproc_LineSegmentDetector_drawSegments;
 
-        [DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl)]
-        public static extern int imgproc_LineSegmentDetector_compareSegments(IntPtr obj, Size size,
+        [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+        public delegate int imgproc_LineSegmentDetector_compareSegmentsDelegate(IntPtr obj, Size size,
             IntPtr lines1, IntPtr lines2, IntPtr image);
+        [NativeDelegate("imgproc_LineSegmentDetector_compareSegments")] public static imgproc_LineSegmentDetector_compareSegmentsDelegate imgproc_LineSegmentDetector_compareSegments;
 
-        [DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl)]
-        public static extern IntPtr imgproc_createLineSegmentDetector(
+        [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+        public delegate IntPtr imgproc_createLineSegmentDetectorDelegate(
             int refine, double scale, double sigma_scale, double quant, double ang_th,
             double log_eps, double density_th, int n_bins);
+        [NativeDelegate("imgproc_createLineSegmentDetector")] public static imgproc_createLineSegmentDetectorDelegate imgproc_createLineSegmentDetector;
 
-        [DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl)]
-        public static extern void imgproc_Ptr_LineSegmentDetector_delete(IntPtr obj);
+        [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+        public delegate void imgproc_Ptr_LineSegmentDetector_deleteDelegate(IntPtr obj);
+        [NativeDelegate("imgproc_Ptr_LineSegmentDetector_delete")] public static imgproc_Ptr_LineSegmentDetector_deleteDelegate imgproc_Ptr_LineSegmentDetector_delete;
 
-        [DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl)]
-        public static extern IntPtr imgproc_Ptr_LineSegmentDetector_get(IntPtr obj);
+        [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+        public delegate IntPtr imgproc_Ptr_LineSegmentDetector_getDelegate(IntPtr obj);
+        [NativeDelegate("imgproc_Ptr_LineSegmentDetector_get")] public static imgproc_Ptr_LineSegmentDetector_getDelegate imgproc_Ptr_LineSegmentDetector_get;
     }
 }

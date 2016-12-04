@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using OpenCvSharp.Face;
 using OpenCvSharp.ML;
 using OpenCvSharp.XFeatures2D;
@@ -12,8 +13,10 @@ namespace OpenCvSharp
     /// <typeparam name="T"></typeparam>
     internal class Ptr<T> : DisposableCvObject
     {
+        [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         private delegate void ReleaseFunc(IntPtr ptr);
 
+        [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         private delegate IntPtr ObjFunc(IntPtr ptr);
 
         private bool disposed;

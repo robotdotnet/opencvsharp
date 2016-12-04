@@ -1,4 +1,5 @@
-﻿using System;
+using OpenCvSharp.PInvoke.NativeLibraryUtilties;
+using System;
 using System.Runtime.InteropServices;
 using System.Text;
 
@@ -8,20 +9,25 @@ namespace OpenCvSharp
 {
     static partial class NativeMethods
     {
-        [DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl)]
-        public static extern void core_Algorithm_write(IntPtr obj, IntPtr fs);
+        [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+        public delegate void core_Algorithm_writeDelegate(IntPtr obj, IntPtr fs);
+        [NativeDelegate("core_Algorithm_write")] public static core_Algorithm_writeDelegate core_Algorithm_write;
 
-        [DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl)]
-        public static extern void core_Algorithm_read(IntPtr obj, IntPtr fn);
+        [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+        public delegate void core_Algorithm_readDelegate(IntPtr obj, IntPtr fn);
+        [NativeDelegate("core_Algorithm_read")] public static core_Algorithm_readDelegate core_Algorithm_read;
 
-        [DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl)]
-        public static extern int core_Algorithm_empty(IntPtr obj);
+        [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+        public delegate int core_Algorithm_emptyDelegate(IntPtr obj);
+        [NativeDelegate("core_Algorithm_empty")] public static core_Algorithm_emptyDelegate core_Algorithm_empty;
 
-        [DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl)]
-        public static extern void core_Algorithm_save(IntPtr obj, string filename);
+        [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+        public delegate void core_Algorithm_saveDelegate(IntPtr obj, string filename);
+        [NativeDelegate("core_Algorithm_save")] public static core_Algorithm_saveDelegate core_Algorithm_save;
 
-        [DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl)]
-        public static extern void core_Algorithm_getDefaultName(
+        [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+        public delegate void core_Algorithm_getDefaultNameDelegate(
             IntPtr obj, [MarshalAs(UnmanagedType.LPStr)] StringBuilder buf, int bufLength);
+        [NativeDelegate("core_Algorithm_getDefaultName")] public static core_Algorithm_getDefaultNameDelegate core_Algorithm_getDefaultName;
     }
 }

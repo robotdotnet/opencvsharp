@@ -2232,7 +2232,7 @@ namespace OpenCvSharp
             image.ThrowIfNotReady();
             Scalar loDiff0 = loDiff.GetValueOrDefault(new Scalar());
             Scalar upDiff0 = upDiff.GetValueOrDefault(new Scalar());
-            int ret = NativeMethods.imgproc_floodFill(image.CvPtr, seedPoint, newVal, out rect,
+            int ret = NativeMethods.imgproc_floodFill1(image.CvPtr, seedPoint, newVal, out rect,
                 loDiff0, upDiff0, (int)flags);
             image.Fix();
             return ret;
@@ -2297,7 +2297,7 @@ namespace OpenCvSharp
             mask.ThrowIfNotReady();
             Scalar loDiff0 = loDiff.GetValueOrDefault(new Scalar());
             Scalar upDiff0 = upDiff.GetValueOrDefault(new Scalar());
-            int ret = NativeMethods.imgproc_floodFill(image.CvPtr, mask.CvPtr, seedPoint, 
+            int ret = NativeMethods.imgproc_floodFill2(image.CvPtr, mask.CvPtr, seedPoint, 
                 newVal, out rect, loDiff0, upDiff0, (int)flags);
             image.Fix();
             mask.Fix();
@@ -4423,7 +4423,7 @@ namespace OpenCvSharp
             {
                 if (hierarchy == null)
                 {
-                    NativeMethods.imgproc_drawContours_vector(image.CvPtr, contoursPtr.Pointer, contoursArray.Length, contourSize2,
+                    NativeMethods.imgproc_drawContours_vector2(image.CvPtr, contoursPtr.Pointer, contoursArray.Length, contourSize2,
                         contourIdx, color, thickness, (int)lineType, IntPtr.Zero, 0, maxLevel, offset0);
                 }
                 else
