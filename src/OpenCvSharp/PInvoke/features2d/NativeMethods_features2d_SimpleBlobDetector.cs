@@ -16,9 +16,9 @@ namespace OpenCvSharp
         [NativeDelegate("features2d_SimpleBlobDetector_create")] public static features2d_SimpleBlobDetector_createDelegate features2d_SimpleBlobDetector_create;
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate IntPtr features2d_Ptr_SimpleBlobDetector_getDelegate(IntPtr ptr);
-        [NativeDelegate("features2d_Ptr_SimpleBlobDetector_get")] public static features2d_Ptr_SimpleBlobDetector_getDelegate features2d_Ptr_SimpleBlobDetector_get;
+        [NativeDelegate("features2d_Ptr_SimpleBlobDetector_get")] public static ObjFunc features2d_Ptr_SimpleBlobDetector_get;
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate void features2d_Ptr_SimpleBlobDetector_deleteDelegate(IntPtr ptr);
-        [NativeDelegate("features2d_Ptr_SimpleBlobDetector_delete")] public static features2d_Ptr_SimpleBlobDetector_deleteDelegate features2d_Ptr_SimpleBlobDetector_delete;
+        [NativeDelegate("features2d_Ptr_SimpleBlobDetector_delete")] public static ReleaseFunc features2d_Ptr_SimpleBlobDetector_delete;
     }
 }

@@ -22,11 +22,11 @@ namespace OpenCvSharp
 
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate void features2d_Ptr_AgastFeatureDetector_deleteDelegate(IntPtr ptr);
-        [NativeDelegate("features2d_Ptr_AgastFeatureDetector_delete")] public static features2d_Ptr_AgastFeatureDetector_deleteDelegate features2d_Ptr_AgastFeatureDetector_delete;
+        [NativeDelegate("features2d_Ptr_AgastFeatureDetector_delete")] public static ReleaseFunc features2d_Ptr_AgastFeatureDetector_delete;
 
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate IntPtr features2d_Ptr_AgastFeatureDetector_getDelegate(IntPtr ptr);
-        [NativeDelegate("features2d_Ptr_AgastFeatureDetector_get")] public static features2d_Ptr_AgastFeatureDetector_getDelegate features2d_Ptr_AgastFeatureDetector_get;
+        [NativeDelegate("features2d_Ptr_AgastFeatureDetector_get")] public static ObjFunc features2d_Ptr_AgastFeatureDetector_get;
         
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate void features2d_AgastFeatureDetector_setThresholdDelegate(IntPtr obj, int val);

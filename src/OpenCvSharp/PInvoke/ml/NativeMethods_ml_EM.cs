@@ -63,9 +63,9 @@ namespace OpenCvSharp
         [NativeDelegate("ml_EM_create")] public static ml_EM_createDelegate ml_EM_create;
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate IntPtr ml_Ptr_EM_getDelegate(IntPtr ptr);
-        [NativeDelegate("ml_Ptr_EM_get")] public static ml_Ptr_EM_getDelegate ml_Ptr_EM_get;
+        [NativeDelegate("ml_Ptr_EM_get")] public static ObjFunc ml_Ptr_EM_get;
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate void ml_Ptr_EM_deleteDelegate(IntPtr ptr);
-        [NativeDelegate("ml_Ptr_EM_delete")] public static ml_Ptr_EM_deleteDelegate ml_Ptr_EM_delete;
+        [NativeDelegate("ml_Ptr_EM_delete")] public static ReleaseFunc ml_Ptr_EM_delete;
     }
 }

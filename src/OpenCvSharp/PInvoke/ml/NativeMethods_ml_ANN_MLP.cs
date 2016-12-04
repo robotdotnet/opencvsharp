@@ -92,9 +92,9 @@ namespace OpenCvSharp
         [NativeDelegate("ml_ANN_MLP_create")] public static ml_ANN_MLP_createDelegate ml_ANN_MLP_create;
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate void ml_Ptr_ANN_MLP_deleteDelegate(IntPtr obj);
-        [NativeDelegate("ml_Ptr_ANN_MLP_delete")] public static ml_Ptr_ANN_MLP_deleteDelegate ml_Ptr_ANN_MLP_delete;
+        [NativeDelegate("ml_Ptr_ANN_MLP_delete")] public static ReleaseFunc ml_Ptr_ANN_MLP_delete;
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate IntPtr ml_Ptr_ANN_MLP_getDelegate(IntPtr obj);
-        [NativeDelegate("ml_Ptr_ANN_MLP_get")] public static ml_Ptr_ANN_MLP_getDelegate ml_Ptr_ANN_MLP_get;
+        [NativeDelegate("ml_Ptr_ANN_MLP_get")] public static ObjFunc ml_Ptr_ANN_MLP_get;
     }
 }

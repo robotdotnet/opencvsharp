@@ -16,7 +16,7 @@ namespace OpenCvSharp
         [NativeDelegate("xfeatures2d_BriefDescriptorExtractor_create")] public static xfeatures2d_BriefDescriptorExtractor_createDelegate xfeatures2d_BriefDescriptorExtractor_create;
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate void xfeatures2d_Ptr_BriefDescriptorExtractor_deleteDelegate(IntPtr obj);
-        [NativeDelegate("xfeatures2d_Ptr_BriefDescriptorExtractor_delete")] public static xfeatures2d_Ptr_BriefDescriptorExtractor_deleteDelegate xfeatures2d_Ptr_BriefDescriptorExtractor_delete;
+        [NativeDelegate("xfeatures2d_Ptr_BriefDescriptorExtractor_delete")] public static ReleaseFunc xfeatures2d_Ptr_BriefDescriptorExtractor_delete;
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate void xfeatures2d_BriefDescriptorExtractor_readDelegate(IntPtr obj, IntPtr fn);
         [NativeDelegate("xfeatures2d_BriefDescriptorExtractor_read")] public static xfeatures2d_BriefDescriptorExtractor_readDelegate xfeatures2d_BriefDescriptorExtractor_read;
@@ -35,7 +35,7 @@ namespace OpenCvSharp
 
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate IntPtr xfeatures2d_Ptr_BriefDescriptorExtractor_getDelegate(IntPtr ptr);
-        [NativeDelegate("xfeatures2d_Ptr_BriefDescriptorExtractor_get")] public static xfeatures2d_Ptr_BriefDescriptorExtractor_getDelegate xfeatures2d_Ptr_BriefDescriptorExtractor_get;
+        [NativeDelegate("xfeatures2d_Ptr_BriefDescriptorExtractor_get")] public static ObjFunc xfeatures2d_Ptr_BriefDescriptorExtractor_get;
 
         // FREAK
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
@@ -45,14 +45,14 @@ namespace OpenCvSharp
         [NativeDelegate("xfeatures2d_FREAK_create")] public static xfeatures2d_FREAK_createDelegate xfeatures2d_FREAK_create;
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate void xfeatures2d_Ptr_FREAK_deleteDelegate(IntPtr ptr);
-        [NativeDelegate("xfeatures2d_Ptr_FREAK_delete")] public static xfeatures2d_Ptr_FREAK_deleteDelegate xfeatures2d_Ptr_FREAK_delete;
+        [NativeDelegate("xfeatures2d_Ptr_FREAK_delete")] public static ReleaseFunc xfeatures2d_Ptr_FREAK_delete;
 
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate IntPtr xfeatures2d_FREAK_infoDelegate(IntPtr obj);
         [NativeDelegate("xfeatures2d_FREAK_info")] public static xfeatures2d_FREAK_infoDelegate xfeatures2d_FREAK_info;
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate IntPtr xfeatures2d_Ptr_FREAK_getDelegate(IntPtr ptr);
-        [NativeDelegate("xfeatures2d_Ptr_FREAK_get")] public static xfeatures2d_Ptr_FREAK_getDelegate xfeatures2d_Ptr_FREAK_get;
+        [NativeDelegate("xfeatures2d_Ptr_FREAK_get")] public static ObjFunc xfeatures2d_Ptr_FREAK_get;
 
         // StarDetector
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
@@ -62,14 +62,14 @@ namespace OpenCvSharp
         [NativeDelegate("xfeatures2d_StarDetector_create")] public static xfeatures2d_StarDetector_createDelegate xfeatures2d_StarDetector_create;
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate void xfeatures2d_Ptr_StarDetector_deleteDelegate(IntPtr ptr);
-        [NativeDelegate("xfeatures2d_Ptr_StarDetector_delete")] public static xfeatures2d_Ptr_StarDetector_deleteDelegate xfeatures2d_Ptr_StarDetector_delete;
+        [NativeDelegate("xfeatures2d_Ptr_StarDetector_delete")] public static ReleaseFunc xfeatures2d_Ptr_StarDetector_delete;
 
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate IntPtr xfeatures2d_StarDetector_infoDelegate(IntPtr obj);
         [NativeDelegate("xfeatures2d_StarDetector_info")] public static xfeatures2d_StarDetector_infoDelegate xfeatures2d_StarDetector_info;
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate IntPtr xfeatures2d_Ptr_StarDetector_getDelegate(IntPtr ptr);
-        [NativeDelegate("xfeatures2d_Ptr_StarDetector_get")] public static xfeatures2d_Ptr_StarDetector_getDelegate xfeatures2d_Ptr_StarDetector_get;
+        [NativeDelegate("xfeatures2d_Ptr_StarDetector_get")] public static ObjFunc xfeatures2d_Ptr_StarDetector_get;
 
         // DenseFeatureDetector
         /*
@@ -92,7 +92,7 @@ namespace OpenCvSharp
         public delegate void xfeatures2d_Ptr_DenseFeatureDetector_deleteDelegate(IntPtr ptr);
         [NativeDelegate("xfeatures2d_Ptr_DenseFeatureDetector_delete")] public static xfeatures2d_Ptr_DenseFeatureDetector_deleteDelegate xfeatures2d_Ptr_DenseFeatureDetector_delete;
         */
-
+        /*
         // SURF
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate IntPtr xfeatures2d_SURF_createDelegate(
@@ -101,10 +101,10 @@ namespace OpenCvSharp
         [NativeDelegate("xfeatures2d_SURF_create")] public static xfeatures2d_SURF_createDelegate xfeatures2d_SURF_create;
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate void xfeatures2d_Ptr_SURF_deleteDelegate(IntPtr ptr);
-        [NativeDelegate("xfeatures2d_Ptr_SURF_delete")] public static xfeatures2d_Ptr_SURF_deleteDelegate xfeatures2d_Ptr_SURF_delete;
+        [NativeDelegate("xfeatures2d_Ptr_SURF_delete")] public static ReleaseFunc xfeatures2d_Ptr_SURF_delete;
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate IntPtr xfeatures2d_Ptr_SURF_getDelegate(IntPtr ptr);
-        [NativeDelegate("xfeatures2d_Ptr_SURF_get")] public static xfeatures2d_Ptr_SURF_getDelegate xfeatures2d_Ptr_SURF_get;
+        [NativeDelegate("xfeatures2d_Ptr_SURF_get")] public static ObjFunc xfeatures2d_Ptr_SURF_get;
 
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate IntPtr xfeatures2d_SURF_infoDelegate(IntPtr obj);
@@ -147,13 +147,14 @@ namespace OpenCvSharp
         [NativeDelegate("xfeatures2d_SIFT_create")] public static xfeatures2d_SIFT_createDelegate xfeatures2d_SIFT_create;
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate void xfeatures2d_Ptr_SIFT_deleteDelegate(IntPtr ptr);
-        [NativeDelegate("xfeatures2d_Ptr_SIFT_delete")] public static xfeatures2d_Ptr_SIFT_deleteDelegate xfeatures2d_Ptr_SIFT_delete;
+        [NativeDelegate("xfeatures2d_Ptr_SIFT_delete")] public static ReleaseFunc xfeatures2d_Ptr_SIFT_delete;
 
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate IntPtr xfeatures2d_Ptr_SIFT_getDelegate(IntPtr ptr);
-        [NativeDelegate("xfeatures2d_Ptr_SIFT_get")] public static xfeatures2d_Ptr_SIFT_getDelegate xfeatures2d_Ptr_SIFT_get;
+        [NativeDelegate("xfeatures2d_Ptr_SIFT_get")] public static ObjFunc xfeatures2d_Ptr_SIFT_get;
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate IntPtr xfeatures2d_SIFT_infoDelegate(IntPtr obj);
         [NativeDelegate("xfeatures2d_SIFT_info")] public static xfeatures2d_SIFT_infoDelegate xfeatures2d_SIFT_info;
+        */
     }
 }

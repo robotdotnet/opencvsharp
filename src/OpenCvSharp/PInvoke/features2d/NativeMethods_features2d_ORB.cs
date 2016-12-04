@@ -18,7 +18,7 @@ namespace OpenCvSharp
 
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate void features2d_Ptr_ORB_deleteDelegate(IntPtr ptr);
-        [NativeDelegate("features2d_Ptr_ORB_delete")] public static features2d_Ptr_ORB_deleteDelegate features2d_Ptr_ORB_delete;
+        [NativeDelegate("features2d_Ptr_ORB_delete")] public static ReleaseFunc features2d_Ptr_ORB_delete;
 
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate IntPtr features2d_ORB_infoDelegate(IntPtr obj);
@@ -26,7 +26,7 @@ namespace OpenCvSharp
 
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate IntPtr features2d_Ptr_ORB_getDelegate(IntPtr ptr);
-        [NativeDelegate("features2d_Ptr_ORB_get")] public static features2d_Ptr_ORB_getDelegate features2d_Ptr_ORB_get;
+        [NativeDelegate("features2d_Ptr_ORB_get")] public static ObjFunc features2d_Ptr_ORB_get;
 
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate void features2d_ORB_setMaxFeaturesDelegate(IntPtr obj, int val);

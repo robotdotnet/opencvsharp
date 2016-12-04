@@ -19,10 +19,10 @@ namespace OpenCvSharp
 
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate void video_Ptr_BackgroundSubtractor_deleteDelegate(IntPtr ptr);
-        [NativeDelegate("video_Ptr_BackgroundSubtractor_delete")] public static video_Ptr_BackgroundSubtractor_deleteDelegate video_Ptr_BackgroundSubtractor_delete;
+        [NativeDelegate("video_Ptr_BackgroundSubtractor_delete")] public static ReleaseFunc video_Ptr_BackgroundSubtractor_delete;
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate IntPtr video_Ptr_BackgroundSubtractor_getDelegate(IntPtr ptr);
-        [NativeDelegate("video_Ptr_BackgroundSubtractor_get")] public static video_Ptr_BackgroundSubtractor_getDelegate video_Ptr_BackgroundSubtractor_get;
+        [NativeDelegate("video_Ptr_BackgroundSubtractor_get")] public static ObjFunc video_Ptr_BackgroundSubtractor_get;
 
         #endregion
 
@@ -33,11 +33,11 @@ namespace OpenCvSharp
         [NativeDelegate("video_createBackgroundSubtractorMOG2")] public static video_createBackgroundSubtractorMOG2Delegate video_createBackgroundSubtractorMOG2;
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate void video_Ptr_BackgroundSubtractorMOG2_deleteDelegate(IntPtr ptr);
-        [NativeDelegate("video_Ptr_BackgroundSubtractorMOG2_delete")] public static video_Ptr_BackgroundSubtractorMOG2_deleteDelegate video_Ptr_BackgroundSubtractorMOG2_delete;
+        [NativeDelegate("video_Ptr_BackgroundSubtractorMOG2_delete")] public static ReleaseFunc video_Ptr_BackgroundSubtractorMOG2_delete;
 
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate IntPtr video_Ptr_BackgroundSubtractorMOG2_getDelegate(IntPtr ptr);
-        [NativeDelegate("video_Ptr_BackgroundSubtractorMOG2_get")] public static video_Ptr_BackgroundSubtractorMOG2_getDelegate video_Ptr_BackgroundSubtractorMOG2_get;
+        [NativeDelegate("video_Ptr_BackgroundSubtractorMOG2_get")] public static ObjFunc video_Ptr_BackgroundSubtractorMOG2_get;
 
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate int video_BackgroundSubtractorMOG2_getHistoryDelegate(IntPtr ptr);
@@ -123,11 +123,11 @@ namespace OpenCvSharp
         [NativeDelegate("video_createBackgroundSubtractorKNN")] public static video_createBackgroundSubtractorKNNDelegate video_createBackgroundSubtractorKNN;
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate void video_Ptr_BackgroundSubtractorKNN_deleteDelegate(IntPtr obj);
-        [NativeDelegate("video_Ptr_BackgroundSubtractorKNN_delete")] public static video_Ptr_BackgroundSubtractorKNN_deleteDelegate video_Ptr_BackgroundSubtractorKNN_delete;
+        [NativeDelegate("video_Ptr_BackgroundSubtractorKNN_delete")] public static ReleaseFunc video_Ptr_BackgroundSubtractorKNN_delete;
 
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate IntPtr video_Ptr_BackgroundSubtractorKNN_getDelegate(IntPtr ptr);
-        [NativeDelegate("video_Ptr_BackgroundSubtractorKNN_get")] public static video_Ptr_BackgroundSubtractorKNN_getDelegate video_Ptr_BackgroundSubtractorKNN_get;
+        [NativeDelegate("video_Ptr_BackgroundSubtractorKNN_get")] public static ObjFunc video_Ptr_BackgroundSubtractorKNN_get;
 
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate int video_BackgroundSubtractorKNN_getHistoryDelegate(IntPtr ptr);

@@ -17,7 +17,7 @@ namespace OpenCvSharp
         [NativeDelegate("features2d_MSER_create")] public static features2d_MSER_createDelegate features2d_MSER_create;
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate void features2d_Ptr_MSER_deleteDelegate(IntPtr ptr);
-        [NativeDelegate("features2d_Ptr_MSER_delete")] public static features2d_Ptr_MSER_deleteDelegate features2d_Ptr_MSER_delete;
+        [NativeDelegate("features2d_Ptr_MSER_delete")] public static ReleaseFunc features2d_Ptr_MSER_delete;
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate void features2d_MSER_detectDelegate(IntPtr obj, IntPtr image, out IntPtr msers, IntPtr mask);
         [NativeDelegate("features2d_MSER_detect")] public static features2d_MSER_detectDelegate features2d_MSER_detect;
@@ -27,7 +27,7 @@ namespace OpenCvSharp
 
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate IntPtr features2d_Ptr_MSER_getDelegate(IntPtr ptr);
-        [NativeDelegate("features2d_Ptr_MSER_get")] public static features2d_Ptr_MSER_getDelegate features2d_Ptr_MSER_get;
+        [NativeDelegate("features2d_Ptr_MSER_get")] public static ObjFunc features2d_Ptr_MSER_get;
 
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate void features2d_MSER_detectRegionsDelegate(

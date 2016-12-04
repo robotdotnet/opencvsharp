@@ -14,11 +14,11 @@ namespace OpenCvSharp
 
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate void stitching_Ptr_Stitcher_deleteDelegate(IntPtr obj);
-        [NativeDelegate("stitching_Ptr_Stitcher_delete")] public static stitching_Ptr_Stitcher_deleteDelegate stitching_Ptr_Stitcher_delete;
+        [NativeDelegate("stitching_Ptr_Stitcher_delete")] public static ReleaseFunc stitching_Ptr_Stitcher_delete;
 
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate IntPtr stitching_Ptr_Stitcher_getDelegate(IntPtr obj);
-        [NativeDelegate("stitching_Ptr_Stitcher_get")] public static stitching_Ptr_Stitcher_getDelegate stitching_Ptr_Stitcher_get;
+        [NativeDelegate("stitching_Ptr_Stitcher_get")] public static ObjFunc stitching_Ptr_Stitcher_get;
 
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate double stitching_Stitcher_registrationResolDelegate(IntPtr obj);

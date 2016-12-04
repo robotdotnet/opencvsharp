@@ -64,9 +64,9 @@ namespace OpenCvSharp
         [NativeDelegate("ml_LogisticRegression_create")] public static ml_LogisticRegression_createDelegate ml_LogisticRegression_create;
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate void ml_Ptr_LogisticRegression_deleteDelegate(IntPtr obj);
-        [NativeDelegate("ml_Ptr_LogisticRegression_delete")] public static ml_Ptr_LogisticRegression_deleteDelegate ml_Ptr_LogisticRegression_delete;
+        [NativeDelegate("ml_Ptr_LogisticRegression_delete")] public static ReleaseFunc ml_Ptr_LogisticRegression_delete;
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate IntPtr ml_Ptr_LogisticRegression_getDelegate(IntPtr obj);
-        [NativeDelegate("ml_Ptr_LogisticRegression_get")] public static ml_Ptr_LogisticRegression_getDelegate ml_Ptr_LogisticRegression_get;
+        [NativeDelegate("ml_Ptr_LogisticRegression_get")] public static ObjFunc ml_Ptr_LogisticRegression_get;
     }
 }

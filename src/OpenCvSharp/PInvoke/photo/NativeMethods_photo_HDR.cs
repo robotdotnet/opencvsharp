@@ -19,7 +19,7 @@ namespace OpenCvSharp
 
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate void photo_Ptr_CalibrateDebevec_deleteDelegate(IntPtr obj);
-        [NativeDelegate("photo_Ptr_CalibrateDebevec_delete")] public static photo_Ptr_CalibrateDebevec_deleteDelegate photo_Ptr_CalibrateDebevec_delete;
+        [NativeDelegate("photo_Ptr_CalibrateDebevec_delete")] public static ReleaseFunc photo_Ptr_CalibrateDebevec_delete;
 
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate void photo_Ptr_CalibrateRobertson_deleteDelegate(IntPtr obj);
@@ -27,7 +27,7 @@ namespace OpenCvSharp
 
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate IntPtr photo_Ptr_CalibrateDebevec_getDelegate(IntPtr obj);
-        [NativeDelegate("photo_Ptr_CalibrateDebevec_get")] public static photo_Ptr_CalibrateDebevec_getDelegate photo_Ptr_CalibrateDebevec_get;
+        [NativeDelegate("photo_Ptr_CalibrateDebevec_get")] public static ObjFunc photo_Ptr_CalibrateDebevec_get;
 
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate IntPtr photo_Ptr_CalibrateRobertson_getDelegate(IntPtr obj);

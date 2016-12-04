@@ -85,11 +85,11 @@ namespace OpenCvSharp
 
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate IntPtr imgproc_Ptr_GeneralizedHoughBallard_getDelegate(IntPtr obj);
-        [NativeDelegate("imgproc_Ptr_GeneralizedHoughBallard_get")] public static imgproc_Ptr_GeneralizedHoughBallard_getDelegate imgproc_Ptr_GeneralizedHoughBallard_get;
+        [NativeDelegate("imgproc_Ptr_GeneralizedHoughBallard_get")] public static ObjFunc imgproc_Ptr_GeneralizedHoughBallard_get;
 
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate void imgproc_Ptr_GeneralizedHoughBallard_deleteDelegate(IntPtr obj);
-        [NativeDelegate("imgproc_Ptr_GeneralizedHoughBallard_delete")] public static imgproc_Ptr_GeneralizedHoughBallard_deleteDelegate imgproc_Ptr_GeneralizedHoughBallard_delete;
+        [NativeDelegate("imgproc_Ptr_GeneralizedHoughBallard_delete")] public static ReleaseFunc imgproc_Ptr_GeneralizedHoughBallard_delete;
 
 
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
@@ -119,11 +119,11 @@ namespace OpenCvSharp
 
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate IntPtr imgproc_Ptr_GeneralizedHoughGuil_getDelegate(IntPtr obj);
-        [NativeDelegate("imgproc_Ptr_GeneralizedHoughGuil_get")] public static imgproc_Ptr_GeneralizedHoughGuil_getDelegate imgproc_Ptr_GeneralizedHoughGuil_get;
+        [NativeDelegate("imgproc_Ptr_GeneralizedHoughGuil_get")] public static ObjFunc imgproc_Ptr_GeneralizedHoughGuil_get;
 
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate void imgproc_Ptr_GeneralizedHoughGuil_deleteDelegate(IntPtr obj);
-        [NativeDelegate("imgproc_Ptr_GeneralizedHoughGuil_delete")] public static imgproc_Ptr_GeneralizedHoughGuil_deleteDelegate imgproc_Ptr_GeneralizedHoughGuil_delete;
+        [NativeDelegate("imgproc_Ptr_GeneralizedHoughGuil_delete")] public static ReleaseFunc imgproc_Ptr_GeneralizedHoughGuil_delete;
 
 
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]

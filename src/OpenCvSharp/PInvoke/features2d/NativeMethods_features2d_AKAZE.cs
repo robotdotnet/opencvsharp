@@ -18,11 +18,11 @@ namespace OpenCvSharp
 
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate void features2d_Ptr_AKAZE_deleteDelegate(IntPtr ptr);
-        [NativeDelegate("features2d_Ptr_AKAZE_delete")] public static features2d_Ptr_AKAZE_deleteDelegate features2d_Ptr_AKAZE_delete;
+        [NativeDelegate("features2d_Ptr_AKAZE_delete")] public static ReleaseFunc features2d_Ptr_AKAZE_delete;
 
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate IntPtr features2d_Ptr_AKAZE_getDelegate(IntPtr ptr);
-        [NativeDelegate("features2d_Ptr_AKAZE_get")] public static features2d_Ptr_AKAZE_getDelegate features2d_Ptr_AKAZE_get;
+        [NativeDelegate("features2d_Ptr_AKAZE_get")] public static ObjFunc features2d_Ptr_AKAZE_get;
 
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate void features2d_AKAZE_setDescriptorTypeDelegate(IntPtr obj, int val);

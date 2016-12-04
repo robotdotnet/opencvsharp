@@ -130,9 +130,9 @@ namespace OpenCvSharp
 
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate IntPtr video_Ptr_DenseOpticalFlow_getDelegate(IntPtr ptr);
-        [NativeDelegate("video_Ptr_DenseOpticalFlow_get")] public static video_Ptr_DenseOpticalFlow_getDelegate video_Ptr_DenseOpticalFlow_get;
+        [NativeDelegate("video_Ptr_DenseOpticalFlow_get")] public static ObjFunc video_Ptr_DenseOpticalFlow_get;
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate void video_Ptr_DenseOpticalFlow_deleteDelegate(IntPtr ptr);
-        [NativeDelegate("video_Ptr_DenseOpticalFlow_delete")] public static video_Ptr_DenseOpticalFlow_deleteDelegate video_Ptr_DenseOpticalFlow_delete;
+        [NativeDelegate("video_Ptr_DenseOpticalFlow_delete")] public static ReleaseFunc video_Ptr_DenseOpticalFlow_delete;
     }
 }

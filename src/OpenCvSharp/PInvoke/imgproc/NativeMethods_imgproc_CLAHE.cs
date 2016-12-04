@@ -14,11 +14,11 @@ namespace OpenCvSharp
 
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate void imgproc_Ptr_CLAHE_deleteDelegate(IntPtr obj);
-        [NativeDelegate("imgproc_Ptr_CLAHE_delete")] public static imgproc_Ptr_CLAHE_deleteDelegate imgproc_Ptr_CLAHE_delete;
+        [NativeDelegate("imgproc_Ptr_CLAHE_delete")] public static ReleaseFunc imgproc_Ptr_CLAHE_delete;
 
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate IntPtr imgproc_Ptr_CLAHE_getDelegate(IntPtr obj);
-        [NativeDelegate("imgproc_Ptr_CLAHE_get")] public static imgproc_Ptr_CLAHE_getDelegate imgproc_Ptr_CLAHE_get;
+        [NativeDelegate("imgproc_Ptr_CLAHE_get")] public static ObjFunc imgproc_Ptr_CLAHE_get;
 
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate IntPtr imgproc_CLAHE_infoDelegate(IntPtr obj);

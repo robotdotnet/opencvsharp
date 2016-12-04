@@ -19,11 +19,11 @@ namespace OpenCvSharp
 
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate void shape_Ptr_ShapeContextDistanceExtractor_deleteDelegate(IntPtr obj);
-        [NativeDelegate("shape_Ptr_ShapeContextDistanceExtractor_delete")] public static shape_Ptr_ShapeContextDistanceExtractor_deleteDelegate shape_Ptr_ShapeContextDistanceExtractor_delete;
+        [NativeDelegate("shape_Ptr_ShapeContextDistanceExtractor_delete")] public static ReleaseFunc shape_Ptr_ShapeContextDistanceExtractor_delete;
 
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate IntPtr shape_Ptr_ShapeContextDistanceExtractor_getDelegate(IntPtr obj);
-        [NativeDelegate("shape_Ptr_ShapeContextDistanceExtractor_get")] public static shape_Ptr_ShapeContextDistanceExtractor_getDelegate shape_Ptr_ShapeContextDistanceExtractor_get;
+        [NativeDelegate("shape_Ptr_ShapeContextDistanceExtractor_get")] public static ObjFunc shape_Ptr_ShapeContextDistanceExtractor_get;
 
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate void shape_ShapeContextDistanceExtractor_setAngularBinsDelegate(IntPtr obj, int val);
@@ -115,11 +115,11 @@ namespace OpenCvSharp
         
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate void shape_Ptr_HausdorffDistanceExtractor_deleteDelegate(IntPtr obj);
-        [NativeDelegate("shape_Ptr_HausdorffDistanceExtractor_delete")] public static shape_Ptr_HausdorffDistanceExtractor_deleteDelegate shape_Ptr_HausdorffDistanceExtractor_delete;
+        [NativeDelegate("shape_Ptr_HausdorffDistanceExtractor_delete")] public static ReleaseFunc shape_Ptr_HausdorffDistanceExtractor_delete;
 
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate IntPtr shape_Ptr_HausdorffDistanceExtractor_getDelegate(IntPtr obj);
-        [NativeDelegate("shape_Ptr_HausdorffDistanceExtractor_get")] public static shape_Ptr_HausdorffDistanceExtractor_getDelegate shape_Ptr_HausdorffDistanceExtractor_get;
+        [NativeDelegate("shape_Ptr_HausdorffDistanceExtractor_get")] public static ObjFunc shape_Ptr_HausdorffDistanceExtractor_get;
 
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate void shape_HausdorffDistanceExtractor_setDistanceFlagDelegate(IntPtr obj, int val);

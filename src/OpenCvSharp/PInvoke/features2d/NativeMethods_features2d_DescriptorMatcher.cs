@@ -71,10 +71,10 @@ namespace OpenCvSharp
 
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate IntPtr features2d_Ptr_DescriptorMatcher_getDelegate(IntPtr ptr);
-        [NativeDelegate("features2d_Ptr_DescriptorMatcher_get")] public static features2d_Ptr_DescriptorMatcher_getDelegate features2d_Ptr_DescriptorMatcher_get;
+        [NativeDelegate("features2d_Ptr_DescriptorMatcher_get")] public static ObjFunc features2d_Ptr_DescriptorMatcher_get;
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate void features2d_Ptr_DescriptorMatcher_deleteDelegate(IntPtr ptr);
-        [NativeDelegate("features2d_Ptr_DescriptorMatcher_delete")] public static features2d_Ptr_DescriptorMatcher_deleteDelegate features2d_Ptr_DescriptorMatcher_delete;
+        [NativeDelegate("features2d_Ptr_DescriptorMatcher_delete")] public static ReleaseFunc features2d_Ptr_DescriptorMatcher_delete;
 
         // BFMatcher
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
@@ -92,10 +92,10 @@ namespace OpenCvSharp
 
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate IntPtr features2d_Ptr_BFMatcher_getDelegate(IntPtr ptr);
-        [NativeDelegate("features2d_Ptr_BFMatcher_get")] public static features2d_Ptr_BFMatcher_getDelegate features2d_Ptr_BFMatcher_get;
+        [NativeDelegate("features2d_Ptr_BFMatcher_get")] public static ObjFunc features2d_Ptr_BFMatcher_get;
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate void features2d_Ptr_BFMatcher_deleteDelegate(IntPtr ptr);
-        [NativeDelegate("features2d_Ptr_BFMatcher_delete")] public static features2d_Ptr_BFMatcher_deleteDelegate features2d_Ptr_BFMatcher_delete;
+        [NativeDelegate("features2d_Ptr_BFMatcher_delete")] public static ReleaseFunc features2d_Ptr_BFMatcher_delete;
 
         // FlannBasedMatcher
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
@@ -125,10 +125,10 @@ namespace OpenCvSharp
 
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate IntPtr features2d_Ptr_FlannBasedMatcher_getDelegate(IntPtr ptr);
-        [NativeDelegate("features2d_Ptr_FlannBasedMatcher_get")] public static features2d_Ptr_FlannBasedMatcher_getDelegate features2d_Ptr_FlannBasedMatcher_get;
+        [NativeDelegate("features2d_Ptr_FlannBasedMatcher_get")] public static ObjFunc features2d_Ptr_FlannBasedMatcher_get;
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate void features2d_Ptr_FlannBasedMatcher_deleteDelegate(IntPtr ptr);
-        [NativeDelegate("features2d_Ptr_FlannBasedMatcher_delete")] public static features2d_Ptr_FlannBasedMatcher_deleteDelegate features2d_Ptr_FlannBasedMatcher_delete;
+        [NativeDelegate("features2d_Ptr_FlannBasedMatcher_delete")] public static ReleaseFunc features2d_Ptr_FlannBasedMatcher_delete;
 
     }
 }

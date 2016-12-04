@@ -39,10 +39,10 @@ namespace OpenCvSharp
         
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate void ml_Ptr_RTrees_deleteDelegate(IntPtr obj);
-        [NativeDelegate("ml_Ptr_RTrees_delete")] public static ml_Ptr_RTrees_deleteDelegate ml_Ptr_RTrees_delete;
+        [NativeDelegate("ml_Ptr_RTrees_delete")] public static ReleaseFunc ml_Ptr_RTrees_delete;
         
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate IntPtr ml_Ptr_RTrees_getDelegate(IntPtr obj);
-        [NativeDelegate("ml_Ptr_RTrees_get")] public static ml_Ptr_RTrees_getDelegate ml_Ptr_RTrees_get;
+        [NativeDelegate("ml_Ptr_RTrees_get")] public static ObjFunc ml_Ptr_RTrees_get;
     }
 }

@@ -17,7 +17,7 @@ namespace OpenCvSharp
 
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate void features2d_Ptr_KAZE_deleteDelegate(IntPtr ptr);
-        [NativeDelegate("features2d_Ptr_KAZE_delete")] public static features2d_Ptr_KAZE_deleteDelegate features2d_Ptr_KAZE_delete;
+        [NativeDelegate("features2d_Ptr_KAZE_delete")] public static ReleaseFunc features2d_Ptr_KAZE_delete;
 
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate IntPtr features2d_KAZE_infoDelegate(IntPtr obj);
@@ -25,7 +25,7 @@ namespace OpenCvSharp
 
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate IntPtr features2d_Ptr_KAZE_getDelegate(IntPtr ptr);
-        [NativeDelegate("features2d_Ptr_KAZE_get")] public static features2d_Ptr_KAZE_getDelegate features2d_Ptr_KAZE_get;
+        [NativeDelegate("features2d_Ptr_KAZE_get")] public static ObjFunc features2d_Ptr_KAZE_get;
 
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate void features2d_KAZE_setDiffusivityDelegate(IntPtr obj, int val);

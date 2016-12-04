@@ -76,7 +76,7 @@ namespace OpenCvSharp
 
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate void calib3d_Ptr_StereoBM_deleteDelegate(IntPtr obj);
-        [NativeDelegate("calib3d_Ptr_StereoBM_delete")] public static calib3d_Ptr_StereoBM_deleteDelegate calib3d_Ptr_StereoBM_delete;
+        [NativeDelegate("calib3d_Ptr_StereoBM_delete")] public static ReleaseFunc calib3d_Ptr_StereoBM_delete;
 
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate IntPtr calib3d_StereoBM_createDelegate(int numDisparities, int blockSize);
@@ -157,7 +157,7 @@ namespace OpenCvSharp
 
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate void calib3d_Ptr_StereoSGBM_deleteDelegate(IntPtr obj);
-        [NativeDelegate("calib3d_Ptr_StereoSGBM_delete")] public static calib3d_Ptr_StereoSGBM_deleteDelegate calib3d_Ptr_StereoSGBM_delete;
+        [NativeDelegate("calib3d_Ptr_StereoSGBM_delete")] public static ReleaseFunc calib3d_Ptr_StereoSGBM_delete;
 
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate IntPtr calib3d_StereoSGBM_createDelegate(

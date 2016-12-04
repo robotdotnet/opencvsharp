@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 
 namespace OpenCvSharp
 {
-    static partial class NativeMethods
+    partial class NativeMethods
     {
         #region BackgroundSubtractorMOG
 
@@ -17,11 +17,11 @@ namespace OpenCvSharp
 
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate void bgsegm_Ptr_BackgroundSubtractorMOG_deleteDelegate(IntPtr obj);
-        [NativeDelegate("bgsegm_Ptr_BackgroundSubtractorMOG_delete")] public static bgsegm_Ptr_BackgroundSubtractorMOG_deleteDelegate bgsegm_Ptr_BackgroundSubtractorMOG_delete;
+        [NativeDelegate("bgsegm_Ptr_BackgroundSubtractorMOG_delete")] public static ReleaseFunc bgsegm_Ptr_BackgroundSubtractorMOG_delete;
 
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate IntPtr bgsegm_Ptr_BackgroundSubtractorMOG_getDelegate(IntPtr ptr);
-        [NativeDelegate("bgsegm_Ptr_BackgroundSubtractorMOG_get")] public static bgsegm_Ptr_BackgroundSubtractorMOG_getDelegate bgsegm_Ptr_BackgroundSubtractorMOG_get;
+        [NativeDelegate("bgsegm_Ptr_BackgroundSubtractorMOG_get")] public static ObjFunc bgsegm_Ptr_BackgroundSubtractorMOG_get;
 
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate int bgsegm_BackgroundSubtractorMOG_getHistoryDelegate(IntPtr ptr);
@@ -66,11 +66,11 @@ namespace OpenCvSharp
 
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate void bgsegm_Ptr_BackgroundSubtractorGMG_deleteDelegate(IntPtr obj);
-        [NativeDelegate("bgsegm_Ptr_BackgroundSubtractorGMG_delete")] public static bgsegm_Ptr_BackgroundSubtractorGMG_deleteDelegate bgsegm_Ptr_BackgroundSubtractorGMG_delete;
+        [NativeDelegate("bgsegm_Ptr_BackgroundSubtractorGMG_delete")] public static ReleaseFunc bgsegm_Ptr_BackgroundSubtractorGMG_delete;
         
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate IntPtr bgsegm_Ptr_BackgroundSubtractorGMG_getDelegate(IntPtr ptr);
-        [NativeDelegate("bgsegm_Ptr_BackgroundSubtractorGMG_get")] public static bgsegm_Ptr_BackgroundSubtractorGMG_getDelegate bgsegm_Ptr_BackgroundSubtractorGMG_get;
+        [NativeDelegate("bgsegm_Ptr_BackgroundSubtractorGMG_get")] public static ObjFunc bgsegm_Ptr_BackgroundSubtractorGMG_get;
 
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate int bgsegm_BackgroundSubtractorGMG_getMaxFeaturesDelegate(IntPtr ptr);

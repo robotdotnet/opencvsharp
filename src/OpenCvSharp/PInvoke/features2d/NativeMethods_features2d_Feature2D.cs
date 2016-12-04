@@ -12,10 +12,10 @@ namespace OpenCvSharp
 
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate IntPtr features2d_Ptr_Feature2D_getDelegate(IntPtr ptr);
-        [NativeDelegate("features2d_Ptr_Feature2D_get")] public static features2d_Ptr_Feature2D_getDelegate features2d_Ptr_Feature2D_get;
+        [NativeDelegate("features2d_Ptr_Feature2D_get")] public static ObjFunc features2d_Ptr_Feature2D_get;
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate void features2d_Ptr_Feature2D_deleteDelegate(IntPtr ptr);
-        [NativeDelegate("features2d_Ptr_Feature2D_delete")] public static features2d_Ptr_Feature2D_deleteDelegate features2d_Ptr_Feature2D_delete;
+        [NativeDelegate("features2d_Ptr_Feature2D_delete")] public static ReleaseFunc features2d_Ptr_Feature2D_delete;
 
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate void features2d_Feature2D_detect_Mat1Delegate(IntPtr detector, IntPtr image, IntPtr keypoints, IntPtr mask);

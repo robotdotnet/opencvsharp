@@ -26,10 +26,10 @@ namespace OpenCvSharp
         [NativeDelegate("core_Ptr_Algorithm_new")] public static core_Ptr_Algorithm_newDelegate core_Ptr_Algorithm_new;
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate void core_Ptr_Algorithm_deleteDelegate(IntPtr ptr);
-        [NativeDelegate("core_Ptr_Algorithm_delete")] public static core_Ptr_Algorithm_deleteDelegate core_Ptr_Algorithm_delete;
+        [NativeDelegate("core_Ptr_Algorithm_delete")] public static ReleaseFunc core_Ptr_Algorithm_delete;
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate IntPtr core_Ptr_Algorithm_getDelegate(IntPtr ptr);
-        [NativeDelegate("core_Ptr_Algorithm_get")] public static core_Ptr_Algorithm_getDelegate core_Ptr_Algorithm_get;
+        [NativeDelegate("core_Ptr_Algorithm_get")] public static ObjFunc core_Ptr_Algorithm_get;
 
         #endregion
 

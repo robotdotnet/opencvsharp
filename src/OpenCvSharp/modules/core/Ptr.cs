@@ -7,17 +7,18 @@ using OpenCvSharp.XFeatures2D;
 
 namespace OpenCvSharp
 {
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+    public delegate void ReleaseFunc(IntPtr ptr);
+
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+    public delegate IntPtr ObjFunc(IntPtr ptr);
     /// <summary>
     /// Template class for smart reference-counting pointers
     /// </summary>
     /// <typeparam name="T"></typeparam>
     internal class Ptr<T> : DisposableCvObject
     {
-        [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-        private delegate void ReleaseFunc(IntPtr ptr);
 
-        [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-        private delegate IntPtr ObjFunc(IntPtr ptr);
 
         private bool disposed;
         private readonly ReleaseFunc releaseFunc;
@@ -52,8 +53,8 @@ namespace OpenCvSharp
                 {typeof (SimpleBlobDetector), NativeMethods.features2d_Ptr_SimpleBlobDetector_delete},
                 {typeof (StarDetector), NativeMethods.xfeatures2d_Ptr_StarDetector_delete},
                 {typeof (BriefDescriptorExtractor), NativeMethods.xfeatures2d_Ptr_BriefDescriptorExtractor_delete},
-                {typeof (SIFT), NativeMethods.xfeatures2d_Ptr_SIFT_delete},
-                {typeof (SURF), NativeMethods.xfeatures2d_Ptr_SURF_delete},
+                //{typeof (SIFT), NativeMethods.xfeatures2d_Ptr_SIFT_delete},
+                //{typeof (SURF), NativeMethods.xfeatures2d_Ptr_SURF_delete},
                 {typeof (FrameSource), NativeMethods.superres_Ptr_FrameSource_delete},
                 {typeof (SuperResolution), NativeMethods.superres_Ptr_SuperResolution_delete},
                 {typeof (DenseOpticalFlowExt), NativeMethods.superres_Ptr_DenseOpticalFlowExt_delete},
@@ -104,8 +105,8 @@ namespace OpenCvSharp
                 {typeof (SimpleBlobDetector), NativeMethods.features2d_Ptr_SimpleBlobDetector_get},
                 {typeof (StarDetector), NativeMethods.xfeatures2d_Ptr_StarDetector_get},
                 {typeof (BriefDescriptorExtractor), NativeMethods.xfeatures2d_Ptr_BriefDescriptorExtractor_get},
-                {typeof (SIFT), NativeMethods.xfeatures2d_Ptr_SIFT_get},
-                {typeof (SURF), NativeMethods.xfeatures2d_Ptr_SURF_get},
+                //{typeof (SIFT), NativeMethods.xfeatures2d_Ptr_SIFT_get},
+                //{typeof (SURF), NativeMethods.xfeatures2d_Ptr_SURF_get},
                 {typeof (FrameSource), NativeMethods.superres_Ptr_FrameSource_get},
                 {typeof (SuperResolution), NativeMethods.superres_Ptr_SuperResolution_get},
                 {typeof (DenseOpticalFlowExt), NativeMethods.superres_Ptr_DenseOpticalFlowExt_get},

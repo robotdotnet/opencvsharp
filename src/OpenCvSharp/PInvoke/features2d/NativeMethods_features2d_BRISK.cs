@@ -23,10 +23,10 @@ namespace OpenCvSharp
         
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate void features2d_Ptr_BRISK_deleteDelegate(IntPtr ptr);
-        [NativeDelegate("features2d_Ptr_BRISK_delete")] public static features2d_Ptr_BRISK_deleteDelegate features2d_Ptr_BRISK_delete;
+        [NativeDelegate("features2d_Ptr_BRISK_delete")] public static ReleaseFunc features2d_Ptr_BRISK_delete;
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate IntPtr features2d_Ptr_BRISK_getDelegate(IntPtr ptr);
-        [NativeDelegate("features2d_Ptr_BRISK_get")] public static features2d_Ptr_BRISK_getDelegate features2d_Ptr_BRISK_get;
+        [NativeDelegate("features2d_Ptr_BRISK_get")] public static ObjFunc features2d_Ptr_BRISK_get;
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate IntPtr features2d_BRISK_infoDelegate(IntPtr obj);
         [NativeDelegate("features2d_BRISK_info")] public static features2d_BRISK_infoDelegate features2d_BRISK_info;

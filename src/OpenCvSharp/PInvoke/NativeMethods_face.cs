@@ -58,9 +58,9 @@ namespace OpenCvSharp
         [NativeDelegate("face_createLBPHFaceRecognizer")] public static face_createLBPHFaceRecognizerDelegate face_createLBPHFaceRecognizer;
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate IntPtr face_Ptr_FaceRecognizer_getDelegate(IntPtr obj);
-        [NativeDelegate("face_Ptr_FaceRecognizer_get")] public static face_Ptr_FaceRecognizer_getDelegate face_Ptr_FaceRecognizer_get;
+        [NativeDelegate("face_Ptr_FaceRecognizer_get")] public static ObjFunc face_Ptr_FaceRecognizer_get;
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate void face_Ptr_FaceRecognizer_deleteDelegate(IntPtr obj);
-        [NativeDelegate("face_Ptr_FaceRecognizer_delete")] public static face_Ptr_FaceRecognizer_deleteDelegate face_Ptr_FaceRecognizer_delete;
+        [NativeDelegate("face_Ptr_FaceRecognizer_delete")] public static ReleaseFunc face_Ptr_FaceRecognizer_delete;
     }
 }

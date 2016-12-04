@@ -34,10 +34,10 @@ namespace OpenCvSharp
 
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate IntPtr superres_Ptr_FrameSource_getDelegate(IntPtr ptr);
-        [NativeDelegate("superres_Ptr_FrameSource_get")] public static superres_Ptr_FrameSource_getDelegate superres_Ptr_FrameSource_get;
+        [NativeDelegate("superres_Ptr_FrameSource_get")] public static ObjFunc superres_Ptr_FrameSource_get;
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate void superres_Ptr_FrameSource_deleteDelegate(IntPtr ptr);
-        [NativeDelegate("superres_Ptr_FrameSource_delete")] public static superres_Ptr_FrameSource_deleteDelegate superres_Ptr_FrameSource_delete;
+        [NativeDelegate("superres_Ptr_FrameSource_delete")] public static ReleaseFunc superres_Ptr_FrameSource_delete;
 
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate void superres_SuperResolution_setInputDelegate(IntPtr obj, IntPtr frameSource);
@@ -67,10 +67,10 @@ namespace OpenCvSharp
 
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate IntPtr superres_Ptr_SuperResolution_getDelegate(IntPtr ptr);
-        [NativeDelegate("superres_Ptr_SuperResolution_get")] public static superres_Ptr_SuperResolution_getDelegate superres_Ptr_SuperResolution_get;
+        [NativeDelegate("superres_Ptr_SuperResolution_get")] public static ObjFunc superres_Ptr_SuperResolution_get;
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate void superres_Ptr_SuperResolution_deleteDelegate(IntPtr ptr);
-        [NativeDelegate("superres_Ptr_SuperResolution_delete")] public static superres_Ptr_SuperResolution_deleteDelegate superres_Ptr_SuperResolution_delete;
+        [NativeDelegate("superres_Ptr_SuperResolution_delete")] public static ReleaseFunc superres_Ptr_SuperResolution_delete;
         
 
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
@@ -86,10 +86,10 @@ namespace OpenCvSharp
 
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate IntPtr superres_Ptr_DenseOpticalFlowExt_getDelegate(IntPtr ptr);
-        [NativeDelegate("superres_Ptr_DenseOpticalFlowExt_get")] public static superres_Ptr_DenseOpticalFlowExt_getDelegate superres_Ptr_DenseOpticalFlowExt_get;
+        [NativeDelegate("superres_Ptr_DenseOpticalFlowExt_get")] public static ObjFunc superres_Ptr_DenseOpticalFlowExt_get;
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate void superres_Ptr_DenseOpticalFlowExt_deleteDelegate(IntPtr ptr);
-        [NativeDelegate("superres_Ptr_DenseOpticalFlowExt_delete")] public static superres_Ptr_DenseOpticalFlowExt_deleteDelegate superres_Ptr_DenseOpticalFlowExt_delete;
+        [NativeDelegate("superres_Ptr_DenseOpticalFlowExt_delete")] public static ReleaseFunc superres_Ptr_DenseOpticalFlowExt_delete;
 
 
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
