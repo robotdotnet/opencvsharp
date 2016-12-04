@@ -103,10 +103,20 @@ ext.useOpenCv = { project ->
 
         compileTask.dependsOn "unzipOpenCvHeaders", "unzipOpenCvNatives_${openCvPlatform}"
         if (targetPlatform.operatingSystem.windows) {
-            linker.args "${openCvNativesFolder}/opencv.lib"
-            linker.args "${openCvNativesFolder}/Release/libjpeg.lib"
-            linker.args "${openCvNativesFolder}/Release/libpng.lib"
-            linker.args "${openCvNativesFolder}/Release/zlib.lib"
+            linker.args new String("${openCvNativesFolder}\\opencv.lib").replace('/', '\\')
+            linker.args new String("${openCvNativesFolder}\\Release\\libjpeg.lib").replace('/', '\\')
+            linker.args new String("${openCvNativesFolder}\\Release\\libpng.lib").replace('/', '\\')
+            linker.args new String("${openCvNativesFolder}\\Release\\zlib.lib").replace('/', '\\')
+            linker.args "Gdi32.lib"
+            linker.args "kernel32.lib"
+            linker.args "user32.lib"
+            linker.args "gdi32.lib"
+            linker.args "comdlg32.lib"
+            linker.args "advapi32.lib"
+            linker.args "shell32.lib"
+            linker.args "ole32.lib"
+            linker.args "oleaut32.lib"
+            linker.args "uuid.lib"
         } else {
             linker.args "-L${openCvNativesFolder}"
             linker.args "-lopencv"
