@@ -97,5 +97,7 @@ if (buildNative) {
         cppSetupModel(project)
         openCvZipTask(project)
         useOpenCv(project)
+        useWpiUtil(project)
+        useNtCore(project)
     }
 }

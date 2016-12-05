@@ -53,16 +53,6 @@ ext.getPlatformPath = { binary ->
     return getPlatformPath2(binary.targetPlatform)
 }
 
-ext.setupDefines = { project, binaries ->
-    binaries.all {
-        if (project.hasProperty('debug')) {
-            project.setupDebugDefines(cppCompiler, linker)
-        } else {
-            project.setupReleaseDefines(cppCompiler, linker)
-        }
-    }
-}
-
 apply from: "locations.gradle"
 
 apply from: "properties.gradle"
@@ -77,6 +67,10 @@ ext.setupDefines = { project, binaries ->
 	    project.setupReleaseDefines(cppCompiler, linker)
 	}
         tasks.withType(CppCompile) {
+            if (!(project.hasProperty('compilerPrefix') && project.targetPlatform.arm)) {
+                project.addWpiUtilStaticLibraryLinks(it, linker, targetPlatform)
+                project.addNtCoreStaticLibraryLinks(it, linker, targetPlatform)
+            }
             project.addOpenCvLibraryLinks(it, linker, targetPlatform)
         }
     }
