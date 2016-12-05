@@ -67,7 +67,9 @@ ext.setupDefines = { project, binaries ->
 	    project.setupReleaseDefines(cppCompiler, linker)
 	}
         tasks.withType(CppCompile) {
-            if (!(project.hasProperty('compilerPrefix') && project.targetPlatform.arm)) {
+            println targetPlatform.architecture.name
+            if (!project.hasProperty('compilerPrefix') && targetPlatform.architecture.name == 'arm-v7') {
+            } else {
                 project.addWpiUtilStaticLibraryLinks(it, linker, targetPlatform)
                 project.addNtCoreStaticLibraryLinks(it, linker, targetPlatform)
             }

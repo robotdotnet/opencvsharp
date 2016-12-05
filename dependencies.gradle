@@ -168,7 +168,9 @@ ext.useWpiUtil = { project ->
         if (targetPlatform.operatingSystem.windows) {
             linker.args "${project.wpiUtil}/${path}/wpiutil.lib"
         } else {
+            linker.args << "-Wl,--whole-archive"
             linker.args "${project.wpiUtil}/${path}/libwpiutil.a"
+            linker.args << "-Wl,--no-whole-archive"
         }
     }
     
@@ -228,7 +230,9 @@ ext.useNtCore = { project ->
         if (targetPlatform.operatingSystem.windows) {
             linker.args "${project.ntCore}/${path}/ntcore.lib"
         } else {
+            linker.args << "-Wl,--whole-archive"
             linker.args "${project.ntCore}/${path}/libntcore.a"
+            inker.args << "-Wl,--no-whole-archive"
         }
     }
     

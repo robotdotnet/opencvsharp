@@ -5,6 +5,7 @@ model {
                 cppCompiler.withArguments { args ->
                     args << '-std=c++11' << '-Wformat=2' << '-Wall' << '-Wextra' << '-Werror' << '-pedantic'
                     args << '-Wno-psabi' << '-Wno-unused-parameter' << '-fPIC' << '-rdynamic'
+                    args << '-Wno-unused-function' << '-Wno-unknown-pragmas'
                     //TODO: When the compiler allows us to actually call deprecated functions from within
                     // deprecated function, remove this line (this will cause calling deprecated functions
                     // to be treated as a warning rather than an error).
@@ -20,6 +21,7 @@ model {
                 cppCompiler.withArguments { args ->
                     args << '-std=c++11' << '-Wformat=2' << '-Wall' << '-Wextra' << '-Werror' << '-pedantic'
                     args << '-Wno-psabi' << '-Wno-unused-parameter' << '-fPIC' << '-rdynamic'
+                    args << '-Wno-unused-function' << '-Wno-unknown-pragmas'
                     //TODO: When the compiler allows us to actually call deprecated functions from within
                     // deprecated function, remove this line (this will cause calling deprecated functions
                     // to be treated as a warning rather than an error).
