@@ -15,6 +15,7 @@ ext.compilerPrefixToUse = project.hasProperty('compilerPrefix') ? project.compil
 
 ext.buildArm = !project.hasProperty('skipArm')
 ext.buildNative = !project.hasProperty('skipNative')
+ext.buildx86 = !project.hasProperty('skipx86')
 
 if (hasProperty('makeDesktop')) {
     println 'Making desktop classifier jar. NOTE: This desktop version should only be used for local testing.' +

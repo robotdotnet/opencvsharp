@@ -5,11 +5,17 @@ def cppSetupModel = { project ->
                 if (project.isArm) {
                     targetPlatform 'arm'
                 } else {
-                    targetPlatform 'x86'
+                    if (!project.hasProperty('skipx86')) {
+                        targetPlatform 'x86'
+                    }
                     targetPlatform 'x64'
                 }
 
                 setupDefines(project, binaries)
+
+                binaries.all {
+                        project.setupDef(linker, "${rootDir}/OpenCVSharpExtern.def")
+                    }
 
 
                 sources {
