@@ -167,6 +167,8 @@ ext.useWpiUtil = { project ->
         String path = project.getPlatformPath2(targetPlatform)
         if (targetPlatform.operatingSystem.windows) {
             linker.args "${project.wpiUtil}/${path}/wpiutil.lib"
+        } else if (targetPlatform.operatingSystem.macOsX) {
+            linker.args << "-force_load ${project.wpiUtil}/${path}/libwpiutil.a" 
         } else {
             linker.args << "-Wl,--whole-archive"
             linker.args "${project.wpiUtil}/${path}/libwpiutil.a"
@@ -229,10 +231,12 @@ ext.useNtCore = { project ->
         String path = project.getPlatformPath2(targetPlatform)
         if (targetPlatform.operatingSystem.windows) {
             linker.args "${project.ntCore}/${path}/ntcore.lib"
+        } else if (targetPlatform.operatingSystem.macOsX) {
+            linker.args << "-force_load ${project.ntCore}/${path}/libntcore.a"
         } else {
             linker.args << "-Wl,--whole-archive"
             linker.args "${project.ntCore}/${path}/libntcore.a"
-            inker.args << "-Wl,--no-whole-archive"
+            linker.args << "-Wl,--no-whole-archive"
         }
     }
     
